@@ -24,7 +24,10 @@
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
- "MediaBowl" will be a website where a user can sort and parse through a database of Movies and Books, where they can recieve reccomendations based on their tastes. A user can input a move they enjoyed and get reccommended other films and books that are similar in style. A user could also parse through said data based on reviews, actors, year released, etc. The project will be implemeneted through the use of SQL and C++, and the website itself with tailwind-CSS. 
+ 
+ "MediaBowl" will be a website where a user can sort and parse through a database of Movies and Books, where they can recieve reccomendations based on their tastes. A user can input a move they enjoyed and get reccommended other films and books that are similar in style. A user could also parse through said data based on reviews, actors, year released, etc. The project will be implemeneted through the use of SQL and C++, and the website itself with tailwind-CSS. The main focus is specifically merging two databases, Movies and books respectivley, in order to provide a one-stop-shop for two common forms of media, allowing a user to search and sort through both at once. 
+
+
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
