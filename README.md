@@ -1,28 +1,12 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9932804&assignment_repo_type=AssignmentRepo)
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \MediaBowl
- > Your author list below should include links to all members GitHub (remove existing author).
+ 
+# MediaBowl
  
  > Authors: [Anthony Padilla](https://github.com/ohmanimblind), [Arrdya Srivastav](https://github.com/arrdyas),  [Luis Magallanes Banuelos](https://github.com/Luiy15), [Kenneth Maina](https://github.com/k-main)
 
 
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
-
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- > * What will be the input/output of your project?
- > * What are the features that the project provides?
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
+
  
  "MediaBowl" will be a website where a user can sort and parse through a database of Movies and Books, where they can recieve reccomendations based on their tastes. A user can input a movie they enjoyed and get reccommended other films and books that are similar in style. A user could also parse through said data based on reviews, actors, year released, etc. The project will be implemeneted through the use of SQL and C++, and the website itself with tailwind-CSS. The main focus is specifically merging two databases, movies and books respectively, in order to provide a one-stop-shop for two common forms of media, allowing a user to search and sort through both at once. 
 
