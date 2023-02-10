@@ -1,0 +1,3 @@
+/home/csmajs/apadi089/final-project-j-a-k-a-l/CMakeFiles/rebuild_cache.dir
+/home/csmajs/apadi089/final-project-j-a-k-a-l/CMakeFiles/Movie_Test.dir
+/home/csmajs/apadi089/final-project-j-a-k-a-l/CMakeFiles/edit_cache.dir
