@@ -23,7 +23,9 @@
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+ https://drive.google.com/file/d/16Xx0sp4i-1k68iHV3ZNQOkCYxMJ6sPSf/view?usp=sharing
+ 
+ The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. As noted by the diagram, Media is an abstract class. The decision was made to make certain private data members, such as directors, a vector, since a movie can have multiple (the same logic was used for genre and such.). The reason why a disctinction is made between books and movies, is due to the fact that a user who is looking for movie reccomendations, is not looking for a book, and vice versa.
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
