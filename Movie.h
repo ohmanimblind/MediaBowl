@@ -1,35 +1,24 @@
 #ifndef MOVIE_H
 #define MOVIE_H
+#include "Media.h"
 
-#include<iostream>
-#include <vector>
 
-using namespace std;
-
-class Movie{
+class Movie:public Media(){
 private:
 
-string MovieName;          //name of movie
-double MovieRating;             //rating of movie
-vector <string> MovieGenres; //Movie genres as an array
-int MovieYear;  //Year of Movie release
+vector <string> _directors;
+vector <string> _actors;
+int _runTime;
 
 public:
 
-//Constructor
-Movie(string MovieName, double MovieRating, vector<string> MovieGenres, int MovieYear);
+vector <string> getDirector()const;
+vector <string> getActors()const;
+int getRuntime()const;
 
-//Accessors
-
-string getName()const;
-double getRating()const;
-int getYear()const;
-string getGenres()const;
-void printMovie();
 
 
 
 };
-
 
 #endif
