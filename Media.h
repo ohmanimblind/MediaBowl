@@ -15,11 +15,11 @@ int _year;
 vector <string> _genres;
 
 public:
-
-virtual string getTitle()const;
-virtual vector<string> getGenres()const;
-virtual int getYear()const;
-virtual string getDescription()const;
+ Media(string t , string d, double r , int y, vector<string> g);
+ string getTitle()const;
+ vector<string> getGenres()const;
+ int getYear()const;
+ string getDescription()const;
 
 
 
