@@ -8,7 +8,7 @@
 ## Project Description
 
  
- "MediaBowl" will be a website where a user can sort and parse through a database of Movies and Books, where they can recieve reccomendations based on their tastes. A user can input a movie they enjoyed and get reccommended other films and books that are similar in style. A user could also parse through said data based on reviews, actors, year released, etc. The project will be implemeneted through the use of SQL and C++, and the website itself with tailwind-CSS. The main focus is specifically merging two databases, movies and books respectively, in order to provide a one-stop-shop for two common forms of media, allowing a user to search and sort through both at once. 
+ "MediaBowl" will be a program where a user can sort and parse through a database of Movies and Books, where they can recieve reccomendations based on their tastes. A user can input a movie they enjoyed and get reccommended other films and books that are similar in style. A user could also parse through said data based on reviews, actors, year released, etc. The project will be implemeneted through the use of SQL and C++. The main focus is specifically merging two databases, movies and books respectively, in order to provide a one-stop-shop for two common forms of media, allowing a user to search and sort through both at once. 
 
 
  > ## Phase II
@@ -25,7 +25,7 @@
 ## Class Diagram
  https://drive.google.com/file/d/1QVRUdJY8oVXlcoORjQ9lq6yovJSUnXNm/view?usp=sharing
  
- The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. As noted by the diagram, Media is an abstract class. The decision was made to make certain private data members, such as directors, a vector, since a movie can have multiple (the same logic was used for genre and such.). The reason why a disctinction is made between books and movies, is due to the fact that a user who is looking for movie reccomendations, is not looking for a book, and vice versa.
+ The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. The decision was made to make certain private data members, such as directors, a vector, since a movie can have multiple (the same logic was used for genre and such.). The reason why a disctinction is made between books and movies, is due to the fact that a user who is looking for movie reccomendations, are not looking for a book, and vice versa.
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
