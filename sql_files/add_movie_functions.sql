@@ -27,13 +27,13 @@ CREATE PROCEDURE add_movie_director(
                             IN movie_director varchar(50))
 	BEGIN
 	INSERT INTO movie_director(movie_id, genre)
-			VALUES ((SELECT movie_id FROM movies WHERE movie_title = title), movie_genre);
+			VALUES ((SELECT movie_id FROM movies WHERE movie_title = title), movie_director);
 	END //
 
 CREATE PROCEDURE add_movie_actor(
 							IN movie_title varchar(50),
-                            IN movie_director varchar(50))
+                            IN movie_actor varchar(50))
 	BEGIN
 	INSERT INTO movie_actor(movie_id, actor)
-			VALUES ((SELECT movie_id FROM movies WHERE movie_title = title), movie_genre);
+			VALUES ((SELECT movie_id FROM movies WHERE movie_title = title), movie_actor);
 	END //

@@ -27,5 +27,5 @@ CREATE PROCEDURE add_book_author(
                             IN book_author varchar(50))
 	BEGIN
 	INSERT INTO author(book_id, actor)
-			VALUES ((SELECT book_id FROM books WHERE book_title = title), book_genre);
+			VALUES ((SELECT book_id FROM books WHERE book_title = title), book_author);
 	END //
