@@ -53,4 +53,35 @@ CREATE TABLE `auhtor`(
     `author` varchar(20) NOT NULL,
     PRIMARY KEY (`book_id`)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `tv_show`(
+	`tv_id` int(11) NOT NULL AUTO_INCREMENT,
+	`release_year` int(11) NOT NULL,
+	`title` varchar(50) NOT NULL,
+    `description` varchar(50) NOT NULL,
+    `rating` double(2,1) NOT NULL,
+    `season_count` int(11) NOT NULL,
+    `image`  varchar(50),
+    PRIMARY KEY (`tv_id`)
+    )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tv_genre`(
+	`tv_id` int(11) NOT NULL AUTO_INCREMENT,
+    `genre` varchar(50) NOT NULL,
+    PRIMARY KEY(`tv_id`)
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tv_director`(
+	`tv_id` int (11) NOT NULL,
+    `director` varchar(50) NOT NULL,
+    PRIMARY KEY (`tv_id`)
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
+CREATE TABLE `tv_actor`(
+	`tv_id` int(11) NOT NULL,
+    `director` varchar(50) NOT NULL,
+    PRIMARY KEY (`tv_id`)
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+        
