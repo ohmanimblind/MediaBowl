@@ -23,7 +23,7 @@
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 ## Class Diagram
- https://drive.google.com/file/d/1QVRUdJY8oVXlcoORjQ9lq6yovJSUnXNm/view?usp=sharing
+ file:///C:/Users/APadi/Downloads/MediaBowl_UML.drawio.svg
  
  The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. The decision was made to make certain private data members, such as directors, a vector, since a movie can have multiple (the same logic was used for genre and such.). The reason why a disctinction is made between books and movies, is due to the fact that a user who is looking for movie reccomendations, are not looking for a book, and vice versa.
  
