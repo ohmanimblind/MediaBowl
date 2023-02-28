@@ -298,6 +298,30 @@ src/Movie.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Movie.cpp.s
 .PHONY : src/Movie.cpp.s
 
+src/Show.o: src/Show.cpp.o
+.PHONY : src/Show.o
+
+# target to build an object file
+src/Show.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Show.cpp.o
+.PHONY : src/Show.cpp.o
+
+src/Show.i: src/Show.cpp.i
+.PHONY : src/Show.i
+
+# target to preprocess a source file
+src/Show.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Show.cpp.i
+.PHONY : src/Show.cpp.i
+
+src/Show.s: src/Show.cpp.s
+.PHONY : src/Show.s
+
+# target to generate assembly for a file
+src/Show.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Show.cpp.s
+.PHONY : src/Show.cpp.s
+
 src/testMedia.o: src/testMedia.cpp.o
 .PHONY : src/testMedia.o
 
@@ -372,6 +396,9 @@ help:
 	@echo "... src/Movie.o"
 	@echo "... src/Movie.i"
 	@echo "... src/Movie.s"
+	@echo "... src/Show.o"
+	@echo "... src/Show.i"
+	@echo "... src/Show.s"
 	@echo "... src/testMedia.o"
 	@echo "... src/testMedia.i"
 	@echo "... src/testMedia.s"

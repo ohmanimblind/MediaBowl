@@ -22,6 +22,7 @@ public:
 	vector<string> getGenres()const;
 	int getYear()const;
 	string getDescription()const;
+	double getRating()const;
 
 
 

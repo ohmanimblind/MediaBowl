@@ -33,3 +33,8 @@ string Media::getDescription()const {
 
     return _description;
 }
+
+double Media::getRating()const{
+
+    return this->_rating;
+}
