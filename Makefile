@@ -65,15 +65,17 @@ CMAKE_BINARY_DIR = /home/csmajs/apadi089/final-project-j-a-k-a-l
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -84,6 +86,49 @@ edit_cache:
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -117,65 +162,189 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Movie_Test
+# Target rules for targets named runAllTests
 
 # Build rule for target.
-Movie_Test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Movie_Test
-.PHONY : Movie_Test
+runAllTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runAllTests
+.PHONY : runAllTests
 
 # fast build rule for target.
-Movie_Test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/build
-.PHONY : Movie_Test/fast
+runAllTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/build
+.PHONY : runAllTests/fast
 
-MediaBowl.o: MediaBowl.cpp.o
-.PHONY : MediaBowl.o
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f test/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make test/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f test/googletest/googlemock/CMakeFiles/gmock.dir/build.make test/googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f test/googletest/googletest/CMakeFiles/gtest_main.dir/build.make test/googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f test/googletest/googletest/CMakeFiles/gtest.dir/build.make test/googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+src/Book.o: src/Book.cpp.o
+.PHONY : src/Book.o
 
 # target to build an object file
-MediaBowl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/MediaBowl.cpp.o
-.PHONY : MediaBowl.cpp.o
+src/Book.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Book.cpp.o
+.PHONY : src/Book.cpp.o
 
-MediaBowl.i: MediaBowl.cpp.i
-.PHONY : MediaBowl.i
+src/Book.i: src/Book.cpp.i
+.PHONY : src/Book.i
 
 # target to preprocess a source file
-MediaBowl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/MediaBowl.cpp.i
-.PHONY : MediaBowl.cpp.i
+src/Book.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Book.cpp.i
+.PHONY : src/Book.cpp.i
 
-MediaBowl.s: MediaBowl.cpp.s
-.PHONY : MediaBowl.s
+src/Book.s: src/Book.cpp.s
+.PHONY : src/Book.s
 
 # target to generate assembly for a file
-MediaBowl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/MediaBowl.cpp.s
-.PHONY : MediaBowl.cpp.s
+src/Book.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Book.cpp.s
+.PHONY : src/Book.cpp.s
 
-Movie.o: Movie.cpp.o
-.PHONY : Movie.o
+src/Media.o: src/Media.cpp.o
+.PHONY : src/Media.o
 
 # target to build an object file
-Movie.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/Movie.cpp.o
-.PHONY : Movie.cpp.o
+src/Media.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Media.cpp.o
+.PHONY : src/Media.cpp.o
 
-Movie.i: Movie.cpp.i
-.PHONY : Movie.i
+src/Media.i: src/Media.cpp.i
+.PHONY : src/Media.i
 
 # target to preprocess a source file
-Movie.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/Movie.cpp.i
-.PHONY : Movie.cpp.i
+src/Media.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Media.cpp.i
+.PHONY : src/Media.cpp.i
 
-Movie.s: Movie.cpp.s
-.PHONY : Movie.s
+src/Media.s: src/Media.cpp.s
+.PHONY : src/Media.s
 
 # target to generate assembly for a file
-Movie.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Movie_Test.dir/build.make CMakeFiles/Movie_Test.dir/Movie.cpp.s
-.PHONY : Movie.cpp.s
+src/Media.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Media.cpp.s
+.PHONY : src/Media.cpp.s
+
+src/Movie.o: src/Movie.cpp.o
+.PHONY : src/Movie.o
+
+# target to build an object file
+src/Movie.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Movie.cpp.o
+.PHONY : src/Movie.cpp.o
+
+src/Movie.i: src/Movie.cpp.i
+.PHONY : src/Movie.i
+
+# target to preprocess a source file
+src/Movie.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Movie.cpp.i
+.PHONY : src/Movie.cpp.i
+
+src/Movie.s: src/Movie.cpp.s
+.PHONY : src/Movie.s
+
+# target to generate assembly for a file
+src/Movie.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Movie.cpp.s
+.PHONY : src/Movie.cpp.s
+
+src/testMedia.o: src/testMedia.cpp.o
+.PHONY : src/testMedia.o
+
+# target to build an object file
+src/testMedia.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/testMedia.cpp.o
+.PHONY : src/testMedia.cpp.o
+
+src/testMedia.i: src/testMedia.cpp.i
+.PHONY : src/testMedia.i
+
+# target to preprocess a source file
+src/testMedia.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/testMedia.cpp.i
+.PHONY : src/testMedia.cpp.i
+
+src/testMedia.s: src/testMedia.cpp.s
+.PHONY : src/testMedia.s
+
+# target to generate assembly for a file
+src/testMedia.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/testMedia.cpp.s
+.PHONY : src/testMedia.cpp.s
+
+test/runAllTests.o: test/runAllTests.cpp.o
+.PHONY : test/runAllTests.o
+
+# target to build an object file
+test/runAllTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/runAllTests.cpp.o
+.PHONY : test/runAllTests.cpp.o
+
+test/runAllTests.i: test/runAllTests.cpp.i
+.PHONY : test/runAllTests.i
+
+# target to preprocess a source file
+test/runAllTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/runAllTests.cpp.i
+.PHONY : test/runAllTests.cpp.i
+
+test/runAllTests.s: test/runAllTests.cpp.s
+.PHONY : test/runAllTests.s
+
+# target to generate assembly for a file
+test/runAllTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/runAllTests.cpp.s
+.PHONY : test/runAllTests.cpp.s
 
 # Help Target
 help:
@@ -184,14 +353,31 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Movie_Test"
-	@echo "... MediaBowl.o"
-	@echo "... MediaBowl.i"
-	@echo "... MediaBowl.s"
-	@echo "... Movie.o"
-	@echo "... Movie.i"
-	@echo "... Movie.s"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
+	@echo "... runAllTests"
+	@echo "... src/Book.o"
+	@echo "... src/Book.i"
+	@echo "... src/Book.s"
+	@echo "... src/Media.o"
+	@echo "... src/Media.i"
+	@echo "... src/Media.s"
+	@echo "... src/Movie.o"
+	@echo "... src/Movie.i"
+	@echo "... src/Movie.s"
+	@echo "... src/testMedia.o"
+	@echo "... src/testMedia.i"
+	@echo "... src/testMedia.s"
+	@echo "... test/runAllTests.o"
+	@echo "... test/runAllTests.i"
+	@echo "... test/runAllTests.s"
 .PHONY : help
 
 

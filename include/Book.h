@@ -4,7 +4,7 @@
 #include <vector>
 
 
-class Book::public Media(){
+class Book:public Media{
 private:
 
 vector<string> authors;
@@ -16,6 +16,6 @@ vector<string> getAuthors()const;
 
 
 
-}
+};
 
 #endif
