@@ -98,9 +98,9 @@ else{
             fillMovieStack.push(movie);
         }
         else if (type == "Show") {
-            string title, description;
+             string title, description, director;
             double rating;
-            int release_year, seasons;
+            int release_year, runtime;
             vector<string> genres, actors;
             getline(ss, title, '#');
             getline(ss, description, '#');
@@ -115,6 +115,9 @@ else{
             while (getline(genre_stream, genre, ',')) {
                 genres.push_back(genre);
             }
+            getline(ss, director, '#');
+            ss >> runtime;
+            ss.ignore(1);
             string actor_list;
             getline(ss, actor_list, '#');
             stringstream actor_stream(actor_list);
@@ -122,8 +125,7 @@ else{
             while (getline(actor_stream, actor, ',')) {
                 actors.push_back(actor);
             }
-            ss >> seasons;
-            Show* show = new Show(title, description, rating, release_year, genres, actors, seasons);
+            Show* show = new Show(title, description, rating, release_year, genres, director, runtime, actors);
             fillShowStack.push(show);
         }
     }

@@ -153,10 +153,10 @@ EXPECT_EQ(testBook->getAuthors().at(0),"Fyodor Dostoyevsky");
 TEST(ShowConstructor, testShowTitle){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getTitle(),"Hannibal");
 
@@ -165,10 +165,10 @@ EXPECT_EQ(testShow->getTitle(),"Hannibal");
 TEST(ShowConstructor, testShowDescription){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getDescription(),"Serial Killer enjoys meal");
 
@@ -177,10 +177,10 @@ EXPECT_EQ(testShow->getDescription(),"Serial Killer enjoys meal");
 TEST(ShowConstructor, testShowRating){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getRating(),8.5);
 
@@ -188,10 +188,10 @@ EXPECT_EQ(testShow->getRating(),8.5);
 TEST(ShowConstructor, testShowYear){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getYear(),2013);
 
@@ -200,10 +200,10 @@ EXPECT_EQ(testShow->getYear(),2013);
 TEST(ShowConstructor, testShowGenre){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getGenres().at(0),"Detective");
 
@@ -212,24 +212,12 @@ EXPECT_EQ(testShow->getGenres().at(0),"Detective");
 TEST(ShowConstructor, testShowActors){
 vector<string>genres;
 genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
+vector<string> actors;
+actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
 
 EXPECT_EQ(testShow->getActors().at(0),"Mads Mikkelsen");
-
-}
-
-TEST(ShowConstructor, testShowSeasons){
-vector<string>genres;
-genres.push_back("Detective");
-vector<string> actor;
-actor.push_back("Mads Mikkelsen");
-
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
-
-EXPECT_EQ(testShow->getSeasons(),3);
 
 }
 
@@ -298,5 +286,5 @@ StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
 stack<Show*> testShowStack = testStack->getShowStack();
 
 EXPECT_EQ(testShowStack.top()->getTitle(),"Breaking Bad");
-
 }
+

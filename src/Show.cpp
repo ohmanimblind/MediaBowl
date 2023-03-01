@@ -2,13 +2,18 @@
 #include "../include/Show.h"
 
 
-Show::Show(string t, string d, double r, int y, vector<string>g , vector<string>a,int s)
-    :Media(t, d, r, y, g),actors(a),_seasons(s){}
+Show::Show(string t, string d, double r, int y, vector<string>g ,string di, int rT, vector<string>a)
+    :Media(t, d, r, y, g),director(di),runTime(rT),actors(a){}
 
 
-int Show::getSeasons()const{
+string Show::getDirector()const{
 
-    return this->_seasons;
+    return this->director;
+}
+
+int Show::getRuntime()const{
+
+    return this->runTime;
 }
 
 vector<string> Show::getActors()const{
