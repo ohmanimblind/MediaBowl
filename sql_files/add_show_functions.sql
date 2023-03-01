@@ -4,13 +4,12 @@ CREATE PROCEDURE add_show(
 							IN show_release_year int(11),
                             IN show_title varchar(50), 
                             IN show_rating double(4,2),
-                            IN show_season_count int(11),
                             IN show_description varchar (50))
 	BEGIN
 	IF(SELECT count(*) FROM tv_show WHERE show_title = title) = 0
     THEN
-	INSERT INTO tv_show (release_year, title, rating, season_count, description)
-		VALUES (show_release_year, show_title, show_rating, show_season_count, show_description);
+	INSERT INTO tv_show (release_year, title, rating, description)
+		VALUES (show_release_year, show_title, show_rating, show_description);
 	END IF;
     END //
 

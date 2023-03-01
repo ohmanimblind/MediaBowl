@@ -56,7 +56,6 @@ CREATE TABLE `tv_show`(
 	`title` varchar(50) NOT NULL,
     `description` varchar(50) NOT NULL,
     `rating` double(2,1) NOT NULL,
-    `season_count` int(11) NOT NULL,
     `image`  varchar(50),
     PRIMARY KEY (`tv_id`)
     )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
