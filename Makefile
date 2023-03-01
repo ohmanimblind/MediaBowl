@@ -322,6 +322,30 @@ src/Show.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/Show.cpp.s
 .PHONY : src/Show.cpp.s
 
+src/StackMaker.o: src/StackMaker.cpp.o
+.PHONY : src/StackMaker.o
+
+# target to build an object file
+src/StackMaker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/StackMaker.cpp.o
+.PHONY : src/StackMaker.cpp.o
+
+src/StackMaker.i: src/StackMaker.cpp.i
+.PHONY : src/StackMaker.i
+
+# target to preprocess a source file
+src/StackMaker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/StackMaker.cpp.i
+.PHONY : src/StackMaker.cpp.i
+
+src/StackMaker.s: src/StackMaker.cpp.s
+.PHONY : src/StackMaker.s
+
+# target to generate assembly for a file
+src/StackMaker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/src/StackMaker.cpp.s
+.PHONY : src/StackMaker.cpp.s
+
 src/testMedia.o: src/testMedia.cpp.o
 .PHONY : src/testMedia.o
 
@@ -399,6 +423,9 @@ help:
 	@echo "... src/Show.o"
 	@echo "... src/Show.i"
 	@echo "... src/Show.s"
+	@echo "... src/StackMaker.o"
+	@echo "... src/StackMaker.i"
+	@echo "... src/StackMaker.s"
 	@echo "... src/testMedia.o"
 	@echo "... src/testMedia.i"
 	@echo "... src/testMedia.s"

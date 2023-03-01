@@ -2,6 +2,7 @@
 #include "../include/Book.h"
 #include "../include/Movie.h"
 #include "../include/Show.h"
+#include "../include/StackMaker.h"
 #include <iostream>
 #include <vector>
 
@@ -229,5 +230,73 @@ actor.push_back("Mads Mikkelsen");
 Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,actor,3);
 
 EXPECT_EQ(testShow->getSeasons(),3);
+
+}
+
+
+
+TEST(BookFileStream, BookTitleFromFile){
+    
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Book*> testBookStack = testStack->getBookStack();
+
+EXPECT_EQ(testBookStack.top()->getTitle(), "Crime and Punishment");
+}
+
+TEST(BookFileStream, BookAuthorFromFile){
+    
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Book*> testBookStack = testStack->getBookStack();
+
+EXPECT_EQ(testBookStack.top()->getAuthors().at(0), "Fyodor Dostoyevsky");
+}
+
+TEST(BookFileStream, BookRatingFromFile){
+    
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Book*> testBookStack = testStack->getBookStack();
+
+EXPECT_EQ(testBookStack.top()->getRating(), 9.5);
+}
+
+TEST(BookFileStream, BookYearFromFile){
+    
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Book*> testBookStack = testStack->getBookStack();
+ 
+EXPECT_EQ(testBookStack.top()->getYear(), 1866);
+}
+
+TEST(BookFileStream, testingSecondBook){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Book*> testBookStack = testStack->getBookStack();
+
+testBookStack.pop();
+
+EXPECT_EQ(testBookStack.top()->getTitle(), "1984");
+}
+
+TEST(MovieandShowFileStream , testingMovieReading){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getTitle(),"The Social Network");
+
+}
+TEST(MovieandShowFileStream, testingShowReading){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","TestMS.txt");
+
+stack<Show*> testShowStack = testStack->getShowStack();
+
+EXPECT_EQ(testShowStack.top()->getTitle(),"Breaking Bad");
 
 }
