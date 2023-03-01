@@ -16,20 +16,17 @@ CREATE TABLE `movies`(
     
 CREATE TABLE `movie_genre`(
 	`movie_id` int(11) NOT NULL,
-    `genre` varchar(50) NOT NULL,
-    PRIMARY KEY (`movie_id`)
+    `genre` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
 CREATE TABLE `director`(
 	`movie_id` int (11) NOT NULL,
-    `director` varchar(50) NOT NULL,
-    PRIMARY KEY (`movie_id`)
+    `director` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
 CREATE TABLE `actor`(
 	`movie_id` int(11) NOT NULL,
-    `director` varchar(50) NOT NULL,
-    PRIMARY KEY (`movie_id`)
+    `actor` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
 CREATE TABLE `books`(
@@ -44,14 +41,12 @@ CREATE TABLE `books`(
 
 CREATE TABLE `book_genre`(
 	`book_id` int(11) NOT NULL,
-    `genre` varchar(10) NOT NULL,
-    PRIMARY KEY (`book_id`)
+    `genre` varchar(10) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
 CREATE TABLE `auhtor`(
 	`book_id` int (11) NOT NULL,
-    `author` varchar(20) NOT NULL,
-    PRIMARY KEY (`book_id`)
+    `author` varchar(20) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -67,21 +62,18 @@ CREATE TABLE `tv_show`(
     )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `tv_genre`(
-	`tv_id` int(11) NOT NULL AUTO_INCREMENT,
-    `genre` varchar(50) NOT NULL,
-    PRIMARY KEY(`tv_id`)
+	`tv_id` int(11) NOT NULL,
+    `genre` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `tv_director`(
 	`tv_id` int (11) NOT NULL,
-    `director` varchar(50) NOT NULL,
-    PRIMARY KEY (`tv_id`)
+    `director` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
     
 CREATE TABLE `tv_actor`(
 	`tv_id` int(11) NOT NULL,
-    `director` varchar(50) NOT NULL,
-    PRIMARY KEY (`tv_id`)
+    `actor` varchar(50) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
         

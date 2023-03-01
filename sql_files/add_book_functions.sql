@@ -15,7 +15,7 @@ CREATE PROCEDURE add_book(
 
 CREATE PROCEDURE add_book_genre(
 							IN book_title varchar(50),
-                            IN movie_genre varchar(50))
+                            IN book_genre varchar(50))
 	BEGIN
 	INSERT INTO book_genre(book_id, genre)
 			VALUES ((SELECT book_id FROM books WHERE book_title = title), book_genre);
@@ -26,6 +26,6 @@ CREATE PROCEDURE add_book_author(
 							IN book_title varchar(50),
                             IN book_author varchar(50))
 	BEGIN
-	INSERT INTO author(book_id, actor)
+	INSERT INTO author(book_id, author)
 			VALUES ((SELECT book_id FROM books WHERE book_title = title), book_author);
 	END //

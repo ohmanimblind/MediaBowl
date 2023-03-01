@@ -26,7 +26,7 @@ CREATE PROCEDURE add_show_director(
 							IN show_title varchar(50),
                             IN show_director varchar(50))
 	BEGIN
-	INSERT INTO tv_director(tv_id, genre)
+	INSERT INTO tv_director(tv_id, director)
 			VALUES ((SELECT tv_id FROM tv_show WHERE show_title = title), show_director);
 	END //
 
@@ -34,6 +34,6 @@ CREATE PROCEDURE add_show_actor(
 							IN show_title varchar(50),
                             IN show_director varchar(50))
 	BEGIN
-	INSERT INTO tv_director(tv_id, actor)
+	INSERT INTO tv_actor(tv_id, actor)
 			VALUES ((SELECT tv_id FROM tv_show WHERE show_title = title), show_actor);
 	END //

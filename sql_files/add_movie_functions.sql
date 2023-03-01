@@ -26,7 +26,7 @@ CREATE PROCEDURE add_movie_director(
 							IN movie_title varchar(50),
                             IN movie_director varchar(50))
 	BEGIN
-	INSERT INTO movie_director(movie_id, genre)
+	INSERT INTO movie_director(movie_id, director)
 			VALUES ((SELECT movie_id FROM movies WHERE movie_title = title), movie_director);
 	END //
 
