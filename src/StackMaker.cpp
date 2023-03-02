@@ -82,16 +82,25 @@ else{
             stringstream genre_stream(genre_list);
             string genre;
             while (getline(genre_stream, genre, ',')) {
+                if (genre.at(0) == ' '){
+                genre = genre.substr(1,genre.size() - 1 );
+                }
                 genres.push_back(genre);
             }
             getline(ss, director, '#');
-            ss >> runtime;
+            getline(ss,runtime,'#');
             ss.ignore(1);
             string actor_list;
             getline(ss, actor_list, '#');
             stringstream actor_stream(actor_list);
             string actor;
             while (getline(actor_stream, actor, ',')) {
+                if(actor.at(0) == ' ')
+                {
+                actor = actor.substr(1, actor.size()-1);
+
+
+                }
                 actors.push_back(actor);
             }
             Movie* movie = new Movie(title, description, rating, release_year, genres, director, runtime, actors);
@@ -113,16 +122,31 @@ else{
             stringstream genre_stream(genre_list);
             string genre;
             while (getline(genre_stream, genre, ',')) {
+                 if (genre.at(0) == ' '){
+                genre = genre.substr(1,genre.size() - 1 );
+                }
+
+               
                 genres.push_back(genre);
+            
+            
             }
             getline(ss, director, '#');
-            ss >> runtime;
+            getline(ss,runtime,'#');
             ss.ignore(1);
             string actor_list;
             getline(ss, actor_list, '#');
             stringstream actor_stream(actor_list);
             string actor;
             while (getline(actor_stream, actor, ',')) {
+                    if(actor.at(0) == ' ')
+                {
+                actor = actor.substr(1, actor.size()-1);
+
+
+                }
+
+                
                 actors.push_back(actor);
             }
             Show* show = new Show(title, description, rating, release_year, genres, director, runtime, actors);

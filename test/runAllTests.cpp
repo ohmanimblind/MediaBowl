@@ -288,3 +288,108 @@ stack<Show*> testShowStack = testStack->getShowStack();
 EXPECT_EQ(testShowStack.top()->getTitle(),"Breaking Bad");
 }
 
+TEST(TestingFromWebScraper, testingMovie){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getTitle(), "The Unbearable Weight of Massive Talent");
+
+}
+
+TEST(TestingFromWebScraper, testingMovieDescription){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getDescription(), "In this action-packed comedy, Nicolas Cage plays Nick Cage, channeling his iconic characters as he's caught between a superfan (Pedro Pascal) and a CIA agent (Tiffany Haddish).");
+
+}
+TEST(TestingFromWebScraper, testingMovieRating){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getRating(),7.0);
+
+}
+
+TEST(TestingFromWebScraper, testingMovieYear){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getYear(), 2022);
+}
+
+TEST(TestingFromWebScraper, testingMovieGenre_1){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+
+    EXPECT_EQ(testMovieStack.top()->getGenres().at(0), "Action");
+}
+
+TEST(TestingFromWebScraper, testingMovieGenre_2){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+
+    EXPECT_EQ(testMovieStack.top()->getGenres().at(1), "Comedy");
+}
+TEST(TestingFromWebScraper, testingMovieGenre_3){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+
+    EXPECT_EQ(testMovieStack.top()->getGenres().at(2), "Crime");
+}
+
+TEST(TestingFromWebScraper, testingMovieDirector){
+
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getDirector(),"Tom Gormican");
+
+}
+TEST(TestingFromWebScraper, testingMovieDuration){
+StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getRuntime(),"1h 47m");
+
+
+}
+
+
+TEST(TestingFromWebScraper, testingMovieActor_2){
+    StackMaker* testStack = new StackMaker("TestBooks.txt","sample.txt");
+
+
+stack<Movie*> testMovieStack = testStack->getMovieStack();
+
+EXPECT_EQ(testMovieStack.top()->getActors().at(1), "Pedro Pascal");
+}
+    
