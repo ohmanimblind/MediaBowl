@@ -8,14 +8,14 @@ private:
 
 string director;
 vector <string> actors;
-int runTime;
+string runTime;
 public: 
 
-Show(string title, string description, double rating, int year, vector<string>genres, string director, int runTime, vector<string>actors);
+Show(string title, string description, double rating, int year, vector<string>genres, string director, string runTime, vector<string>actors);
 
 string getDirector()const;
 vector<string> getActors()const;
-int getRuntime()const;
+string getRuntime()const;
 
 
 };

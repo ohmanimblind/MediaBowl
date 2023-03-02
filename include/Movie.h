@@ -8,13 +8,13 @@ private:
 
 	string _directors;
 	vector <string> _actors;
-	int _runTime;
+	string _runTime;
 
 public:
-	Movie(string t, string d, double r, int y, vector<string> g, string di, int rT, vector<string> a);
+	Movie(string t, string d, double r, int y, vector<string> g, string di, string rT, vector<string> a);
 	string getDirector()const;
 	vector <string> getActors()const;
-	int getRuntime()const;
+	string getRuntime()const;
 
 
 

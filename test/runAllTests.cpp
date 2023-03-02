@@ -12,7 +12,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getTitle(),"The Batman");
 
@@ -23,7 +23,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getRating(),7.8);
 
@@ -34,7 +34,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getDirector(),"Mat Reeves");
 
@@ -45,7 +45,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getYear(),2022);
 
@@ -56,7 +56,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getGenres().at(0),"Thriller");
 
@@ -67,9 +67,9 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
-EXPECT_EQ(testMovie->getRuntime(),176);
+EXPECT_EQ(testMovie->getRuntime(),"176");
 
 }
 
@@ -78,7 +78,7 @@ vector<string> genres;
 genres.push_back("Thriller");
 vector<string> actor;
 actor.push_back("Robert Pattinson");
-Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",176,actor);
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
 
 EXPECT_EQ(testMovie->getActors().at(0),"Robert Pattinson");
 
@@ -156,7 +156,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getTitle(),"Hannibal");
 
@@ -168,7 +168,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getDescription(),"Serial Killer enjoys meal");
 
@@ -180,7 +180,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getRating(),8.5);
 
@@ -191,7 +191,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getYear(),2013);
 
@@ -203,7 +203,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getGenres().at(0),"Detective");
 
@@ -215,7 +215,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",45,actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
 
 EXPECT_EQ(testShow->getActors().at(0),"Mads Mikkelsen");
 

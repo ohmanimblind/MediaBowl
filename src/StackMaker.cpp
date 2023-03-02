@@ -67,9 +67,9 @@ else{
         string type;
         getline(ss, type, '#');
         if (type == "Movie") {
-            string title, description, director;
+            string title, description, director,runtime;
             double rating;
-            int release_year, runtime;
+            int release_year;
             vector<string> genres, actors;
             getline(ss, title, '#');
             getline(ss, description, '#');
@@ -98,9 +98,9 @@ else{
             fillMovieStack.push(movie);
         }
         else if (type == "Show") {
-             string title, description, director;
+             string title, description, director,runtime;
             double rating;
-            int release_year, runtime;
+            int release_year;
             vector<string> genres, actors;
             getline(ss, title, '#');
             getline(ss, description, '#');
