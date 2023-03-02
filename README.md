@@ -23,7 +23,7 @@
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 ## Class Diagram
- file:///C:/Users/APadi/Downloads/MediaBowl_UML.drawio.svg
+https://drive.google.com/file/d/1vXVpHUDVUsyV9RY5fdOARqvlRDKU_Ws7/view?usp=share_link
  
  The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. The decision was made to make certain private data members, such as actors, a vector, since a movie can have multiple (the same logic was used for genre and such.). While the program could be made without the creation of objects, object creation allows for thorough testing, which is imporant due to the developer side of the program being important. The SQL search class was made in order to simplify the functions in the user class. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are.
  
