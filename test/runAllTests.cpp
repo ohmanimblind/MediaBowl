@@ -3,6 +3,9 @@
 #include "../include/Movie.h"
 #include "../include/Show.h"
 #include "../include/StackMaker.h"
+#include "../include/BookTable.h"
+#include "../include/MovieTable.h"
+#include "../include/ShowTable.h"
 #include <iostream>
 #include <vector>
 
@@ -156,7 +159,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getTitle(),"Hannibal");
 
@@ -168,7 +171,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getDescription(),"Serial Killer enjoys meal");
 
@@ -180,7 +183,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getRating(),8.5);
 
@@ -191,7 +194,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getYear(),2013);
 
@@ -203,7 +206,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getGenres().at(0),"Detective");
 
@@ -215,7 +218,7 @@ genres.push_back("Detective");
 vector<string> actors;
 actors.push_back("Mads Mikkelsen");
 
-Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane","45",actors);
+Show* testShow = new Show("Hannibal","Serial Killer enjoys meal",8.5,2013,genres,"Adam Kane",actors);
 
 EXPECT_EQ(testShow->getActors().at(0),"Mads Mikkelsen");
 
@@ -393,3 +396,53 @@ stack<Movie*> testMovieStack = testStack->getMovieStack();
 EXPECT_EQ(testMovieStack.top()->getActors().at(1), "Pedro Pascal");
 }
     
+
+TEST(TestingBookHashTableSearch, testingBook_1){
+   
+vector<string> genres;
+genres.push_back("Crime");
+vector <string> author;
+author.push_back("Fyodor Dostoyevsky");
+Book* testBook = new Book("Crime and Punishment","Untrustworthy Narrator",9.5,1866,genres,author);
+
+BookTable table;
+table.insert(testBook);
+
+Book* searchBook = table.getBy_title("Crime and Punishment");
+
+EXPECT_EQ(searchBook->getRating(),9.5);
+}
+
+TEST(TestingMovieHashTableSearch, testingMovie_1){
+vector<string> genres;
+genres.push_back("Thriller");
+vector<string> actor;
+actor.push_back("Robert Pattinson");
+Movie* testMovie = new Movie("The Batman", "Batman",7.8,2022,genres,"Mat Reeves","176",actor);
+
+MovieTable  table;
+
+table.insertMovie(testMovie);
+
+Movie* searchMovie = table.getByTitle("The Batman");
+
+EXPECT_EQ(searchMovie->getRating(),7.8);
+
+}
+
+TEST(TestingShowHashTableSearch, testingShow_1){
+vector<string> genres;
+genres.push_back("Thriller");
+vector<string> actor;
+actor.push_back("Robert Pattinson");
+Show* testShow = new Show("The Batman", "Batman",7.8,2022,genres,"Mat Reeves",actor);
+
+ShowTable  table;
+
+table.insertShow(testShow);
+
+Show* searchShow = table.getByTitle("The Batman");
+
+EXPECT_EQ(searchShow->getRating(),7.8);
+
+}
