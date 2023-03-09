@@ -8,7 +8,7 @@
 ## Project Description
 
  
- "MediaBowl" will be a program where a user can sort and parse through a database of Movies, Shows and Books, where they can recieve reccomendations based on their tastes. A user can input a movie, book, or show they enjoyed and get reccommended other media that are similar in style. A user could also parse through said data based on ratings, actors, year released, etc. The project will be implemeneted through the use of SQL and C++, and Python. There are two main steps to the project: the developer side, and the user side. The developer side focuses on first creating a Python web-scraper to retrieve information on forms of media. Then, a C++ program will be used to populate a database with pulled information. This process will only be done once, and the relevance of information will be clarified to the user. The user end of the program function with the mySQL C++ connector 8.0, allowing a C++ program to communicate with our database and retreieve information.
+ "MediaBowl" will be a program where search a database of Movies, Shows and Books, where they can recieve reccomendations based on their tastes. A user can input a movie, book, or show they enjoyed and get reccommended other media that are similar in style. A user could also parse through said data based on actors, year released, etc. Users can be reccomended only books, movies, shows, are all 3 depending on what they're looking for in specefic. The program can also simply be used to find information regarding a specific title.
 
 
  > ## Phase II
@@ -25,7 +25,7 @@
 ## Class Diagram
 https://drive.google.com/file/d/1vXVpHUDVUsyV9RY5fdOARqvlRDKU_Ws7/view?usp=share_link
  
- The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie and Book objects.From there, these objects will be used to populate a database through mySQL, in order for the user to be able to run queries. The decision was made to make certain private data members, such as actors, a vector, since a movie can have multiple (the same logic was used for genre and such.). While the program could be made without the creation of objects, object creation allows for thorough testing, which is imporant due to the developer side of the program being important. The SQL search class was made in order to simplify the functions in the user class. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are.
+ The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie,Show, and Book objects.From there, these objects will be used to populate a database implemented throug hash tables. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are. The SeachClass and User class are seperate in order to follow SOLID principles
  
  
  > ## Phase III
