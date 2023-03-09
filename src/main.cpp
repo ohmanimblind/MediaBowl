@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/SearchClass.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -14,23 +15,26 @@ void printHelp(){
     cout << endl;
 }
 
-void movieOption(){
+void movieOption(SearchClass search){
     cout << "Search for movie" << endl;
+
     //will call function that handles searching for movie
 }
 
-void bookOption(){
+void bookOption(SearchClass search){
     cout << "Search for book" << endl;
+    search.SearchBookByTitle("Crime and Punishment");
     //will call function that handles searching for book
 }
 
-void showOption(){
+void showOption(SearchClass search){
     cout << "Search for show" << endl;
     //will call function that handles searching for show
 }
 
-void recommendationOption(){
+void recommendationOption(SearchClass search){
     string choice;
+    //system ("clear");
     cout << "--Recommendations--" << endl;
     cout << "Do you want recommendations for: " << endl;
     cout << "\t1. Movies" << endl;
@@ -42,27 +46,27 @@ void recommendationOption(){
     getline(cin, choice);
     cout << endl;
     if(choice == "1" || choice == "1."){
-        cout << "Movie recommendation" << endl;
+        cout << "Movie recommendation" << endl << flush;
         //call movie recommender
     }
     else if(choice == "2" || choice == "2."){
-        cout << "Book recommendation" << endl;
+        cout << "Book recommendation" << endl << flush;
         //call book recommender
     }
     else if(choice == "3" || choice == "3."){
-        cout << "Show recommendation" << endl;
+        cout << "Show recommendation" << endl << flush;
         //call show recommender
     }
     else if(choice == "4" || choice == "4."){
-        cout << "Returning back to main menu." << endl;
+        cout << "Returning back to main menu." << endl << flush;
     }
     else{
-        cout << "INVALID CHOICE" << endl;
-        cout << "Returning back to main menu." << endl;
+        cout << "INVALID CHOICE" << endl << flush;
+        cout << "Returning back to main menu." << endl << flush;
     }
 }
 
-void printMenu(){
+void printMenu(SearchClass search){
     /*
     MediaBowl
 
@@ -106,19 +110,25 @@ void printMenu(){
         getline(cin, choice);
         cout << endl;
         if(choice == "1" || choice == "1."){
-            movieOption();
+            movieOption(search);
         }
         else if(choice == "2" || choice == "2."){
-            bookOption();
+            bookOption(search);
         }
         else if(choice == "3" || choice == "3."){
-            showOption();
+            showOption(search);
         }
         else if(choice == "4" || choice == "4."){
-            recommendationOption();
+            recommendationOption(search);
         }
         else if(choice == "5" || choice == "5." || choice == "h" || choice == "help"){
             printHelp();
+        }
+        else if(choice == "p" || choice == "penguin"){
+            cout << " ('v')" << endl;
+            cout << "//-=-\\\\" << endl;
+            cout << " (_=/)" << endl;
+            cout << " ^^ ^^" << endl;
         }
         else if(choice == "6" || choice == "6." || choice == "q" || choice == "quit"){
             cout << "Quitting MediaBowl" << endl;
@@ -131,6 +141,8 @@ void printMenu(){
         }
         cout << endl;
         cout << "----------------------------------------------------------------" << endl;
+        getch();
+        system ("clear");
 
     }while(choice != "6" && choice != "6." && choice != "q" && choice != "quit");
 
@@ -140,16 +152,14 @@ void printMenu(){
 
 int main(){
 
-string bookFile = "TestBooks.txt";
-string movieShowFile = "WebScrapedMS.txt";
+//string bookFile = "TestBooks.txt";
+//string movieShowFile = "WebScrapedMS.txt";
 
-SearchClass searching(bookFile, movieShowFile);
-
-searching.SearchBookByTitle("Crime and Punishment");
-searching.SearchMovieByTitle("Magic Mike");
-searching.SearchShowByTitle("Gilmore Girls");
-searching.SearchBookByGenre("Crime");
-searching.SearchMovieByActor("Channing Tatum");
+// searching.SearchBookByTitle("Crime and Punishment");
+// searching.SearchMovieByTitle("Magic Mike");
+// searching.SearchShowByTitle("Gilmore Girls");
+// searching.SearchBookByGenre("Crime");
+// searching.SearchMovieByActor("Channing Tatum");
 
 //This will need to be error handled because the name can be wrong
 
@@ -159,7 +169,16 @@ getline(cin, bookFile);
 cout << "Enter the name of the movie file: ";
 getline(cin, movieFile);
 
-printMenu();
+/*
+('v')
+//-=-\
+(_=/)
+ ^^ ^^
+*/
+
+SearchClass searching(bookFile, movieFile);
+
+printMenu(searching);
 
 return 0;
 
