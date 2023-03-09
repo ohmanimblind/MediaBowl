@@ -33,7 +33,8 @@ public:
         if (iter != genreMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Show*> table;
+            return table;
         }
     }
 
@@ -42,7 +43,8 @@ public:
         if (iter != directorMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Show*> table;
+            return table;
         }
     }
 
@@ -51,7 +53,8 @@ public:
         if (iter != actorMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Show*> table;
+            return table;
         }
     }
 
@@ -60,14 +63,15 @@ public:
         if (iter != releaseYearMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Show*> table;
+            return table;
         }
     }
 
 private:
     unordered_map<string, Show*> shows;
-    unordered_map<string, vector<Show*>> genreMap;
-    unordered_map<string, vector<Show*>> directorMap;
-    unordered_map<string, vector<Show*>> actorMap;
-    unordered_map<int, vector<Show*>> releaseYearMap;
+    unordered_map<string, vector<Show*> > genreMap;
+    unordered_map<string, vector<Show*> > directorMap;
+    unordered_map<string, vector<Show*> > actorMap;
+    unordered_map<int, vector<Show*> > releaseYearMap;
 };
