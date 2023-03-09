@@ -89,7 +89,7 @@ else{
             }
             getline(ss, director, '#');
             getline(ss,runtime,'#');
-            ss.ignore(1);
+            
             string actor_list;
             getline(ss, actor_list, '#');
             stringstream actor_stream(actor_list);
@@ -132,8 +132,7 @@ else{
             
             }
             getline(ss, director, '#');
-            getline(ss,runtime,'#');
-            ss.ignore(1);
+            
             string actor_list;
             getline(ss, actor_list, '#');
             stringstream actor_stream(actor_list);
@@ -149,7 +148,7 @@ else{
                 
                 actors.push_back(actor);
             }
-            Show* show = new Show(title, description, rating, release_year, genres, director, runtime, actors);
+            Show* show = new Show(title, description, rating, release_year, genres, director,  actors);
             fillShowStack.push(show);
         }
     }

@@ -10,3 +10,25 @@ vector<string> Book::getAuthors()const{
 
     return this->authors;
 }
+
+void Book::displayGenres(){
+
+vector<string> g = this->getGenres();
+
+for(int i = 0; i < g.size() ; ++i){
+cout << g.at(i) << ", " ;
+
+}
+}
+
+void Book::displayAuthors(){
+
+for (int i = 0; i < authors.size();++i){
+
+cout << authors.at(i) << ", ";
+
+}
+
+}
+
+

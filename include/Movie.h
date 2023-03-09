@@ -15,7 +15,8 @@ public:
 	string getDirector()const;
 	vector <string> getActors()const;
 	string getRuntime()const;
-
+	void displayGenres();
+	void displayActors();
 
 
 

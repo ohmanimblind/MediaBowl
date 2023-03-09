@@ -23,3 +23,21 @@ string Movie::getRuntime()const {
 
     return _runTime;
 }
+
+void Movie::displayGenres(){
+vector<string> g = this->getGenres();
+
+for(int i = 0; i < g.size() ; ++i){
+cout << g.at(i) << ", " ;
+
+}
+
+}
+
+void Movie::displayActors(){
+for(int i = 0; i < _actors.size() ; ++i){
+cout << _actors.at(i) << ", " ;
+
+}
+
+}

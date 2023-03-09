@@ -13,8 +13,8 @@ public:
 Book(string title, string description, double rating, int year, vector<string>genres, vector<string>authors);
 vector<string> getAuthors()const;
 
-
-
+void displayGenres();
+void displayAuthors();
 
 };
 
