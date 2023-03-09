@@ -5,10 +5,10 @@ using namespace std;
 class BookTable {
 public:
     unordered_map<string, Book*> _titleMap;
-    unordered_map<double, vector<Book*>> ratingMap;
-    unordered_map<int, vector<Book*>> _yearMap;
-    unordered_map<string, vector<Book*>> genreMap;
-    unordered_map<string, vector<Book*>> authorMap;
+    unordered_map<double, vector<Book*> > ratingMap;
+    unordered_map<int, vector<Book*> > _yearMap;
+    unordered_map<string, vector<Book*> > genreMap;
+    unordered_map<string, vector<Book*> > authorMap;
 
     void insert(Book* book) {
         _titleMap[book->getTitle()] = book;
