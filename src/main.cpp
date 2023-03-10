@@ -17,19 +17,19 @@ void printHelp(){
 }
 
 void movieOption(User user){
-    cout << "Search for movie" << endl;
+    cout << "--SEARCH--" << endl;
     user.searchMovie();
     //will call function that handles searching for movie
 }
 
 void bookOption(User user){
-    cout << "Search for book" << endl;
+    cout << "--SEARCH--" << endl;
     user.searchBook();
     //will call function that handles searching for book
 }
 
 void showOption(User user){
-    cout << "Search for show" << endl;
+    cout << "--SEARCH--" << endl;
     user.searchShow();
     //will call function that handles searching for show
 }
@@ -37,14 +37,14 @@ void showOption(User user){
 void recommendationOption(User user){
     string choice;
     //system ("clear");
-    cout << "--Recommendations--" << endl;
-    cout << "Do you want recommendations for: " << endl;
-    cout << "\t1. Movies" << endl;
-    cout << "\t2. Books" << endl;
-    cout << "\t3. Shows" << endl;
-    cout << "\t4. Go back to main menu" << endl;
+    cout << "--RECOMMENDATION--" << endl;
+    cout << "\tDo you want recommendations for: " << endl;
+    cout << "\t\t1. Movies" << endl;
+    cout << "\t\t2. Books" << endl;
+    cout << "\t\t3. Shows" << endl;
+    cout << "\t\t4. Go back to main menu" << endl;
     cout << endl;
-    cout << "Enter your choice: ";
+    cout << "\tEnter your choice: ";
     getline(cin, choice);
     cout << endl;
     if(choice == "1" || choice == "1."){
@@ -165,7 +165,7 @@ int main(){
 
 //This will need to be error handled because the name can be wrong
 
-string bookFile = "TestBooks.txt", movieFile = "WebScrapedMS.txt";
+string bookFile = "TestBooks.txt", movieFile = "return.txt";
 
 /*
 ('v')

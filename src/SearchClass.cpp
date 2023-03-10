@@ -20,7 +20,7 @@ void SearchClass::SearchBookByTitle(string title){
     if(book != nullptr){
         cout << "\t-----------" << endl;
         cout << "\tName: " << book->getTitle() << endl;
-        cout << "\tDescription: " << endl;
+        cout << "\tDescription: ";
         cout << book->getDescription() << endl;
         
         cout <<"\tRating: " << book->getRating() << endl;
@@ -30,6 +30,7 @@ void SearchClass::SearchBookByTitle(string title){
         cout << endl;
         cout <<  "\tAuthors: " ;
         book->displayAuthors();
+        cout << endl;
         cout << "\t-----------" << endl;
     }
     else{
@@ -95,9 +96,9 @@ void SearchClass::SearchMovieByGenre(string genre){
     
     vector<Movie*> moviesWithGenre = mediaData->movies.getByGenre(genre);
     int count;
-    if(moviesWithGenre.size() > 10 ){
+    if(moviesWithGenre.size() > 5 ){
         
-        count = 10;
+        count = 5;
         
     }else{
         
@@ -107,10 +108,19 @@ void SearchClass::SearchMovieByGenre(string genre){
     srand(time(nullptr)); // Seed the random number generator with the current time
     
     // Print out count random elements
-    for (int i = 0; i < count; i++) {
-        int idx = std::rand() % moviesWithGenre.size(); // Generate a random index
-        cout << "\t" << moviesWithGenre.at(idx)->getTitle() << endl;
-        
+    if(count == 5 && moviesWithGenre.size() > 5){
+        for (int i = 0; i < count; i++) {
+            int idx = std::rand() % moviesWithGenre.size(); // Generate a random index
+            this->SearchMovieByTitle(moviesWithGenre.at(idx)->getTitle());
+            cout << endl;
+            
+        }
+    }
+    else{
+        for(int i = 0; i < count; i++){
+            this->SearchMovieByTitle(moviesWithGenre.at(i)->getTitle());
+            cout << endl;
+        }
     }
     
     if(count == 0){
@@ -127,9 +137,9 @@ void SearchClass::SearchBookByGenre(string genre){
     
     
     int count;
-    if(booksWithGenre.size() > 10 ){
+    if(booksWithGenre.size() > 5 ){
         
-        count = 10;;
+        count = 5;
         
     }else{
         
@@ -142,7 +152,8 @@ void SearchClass::SearchBookByGenre(string genre){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = std::rand() % booksWithGenre.size(); // Generate a random index
-        cout << "\t" << booksWithGenre.at(idx)->getTitle() << endl;
+        this->SearchBookByTitle(booksWithGenre.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -176,8 +187,8 @@ void SearchClass::SearchShowByGenre(string genre){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = std::rand() % showsWithGenre.size(); // Generate a random index
-        cout << "\t" << showsWithGenre.at(idx)->getTitle() << endl;
-        
+        this->SearchShowByTitle(showsWithGenre.at(idx)->getTitle());
+        cout << endl;
     }
     
     if(count == 0){
@@ -209,7 +220,8 @@ void SearchClass::SearchBookByAuthor(string author){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % booksWithAuthor.size(); // Generate a random index
-        cout << "\t" << booksWithAuthor.at(idx)->getTitle()  << endl;
+        this->SearchBookByTitle(booksWithAuthor.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -232,7 +244,7 @@ void SearchClass::SearchMovieByDirector(string director){
     int count;
     if(moviesWithDirector.size() > 10 ){
         
-        count = 10;;
+        count = 10;
         
     }else{
         
@@ -245,7 +257,8 @@ void SearchClass::SearchMovieByDirector(string director){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % moviesWithDirector.size(); // Generate a random index
-        cout << "\t" << moviesWithDirector.at(idx)->getTitle()  << endl;
+        this->SearchMovieByTitle(moviesWithDirector.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -268,7 +281,7 @@ void SearchClass::SearchShowByDirector(string director){
     int count;
     if(showsWithDirector.size() > 10 ){
         
-        count = 10;;
+        count = 10;
         
     }else{
         
@@ -280,7 +293,8 @@ void SearchClass::SearchShowByDirector(string director){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showsWithDirector.size(); // Generate a random index
-        cout << "\t" << showsWithDirector.at(idx)->getTitle()  << endl;
+        this->SearchShowByTitle(showsWithDirector.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -317,7 +331,8 @@ void SearchClass::SearchShowByActor(string actor){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showsWithActor.size(); // Generate a random index
-        cout << "\t" << showsWithActor.at(idx)->getTitle()  << endl;
+        this->SearchShowByTitle(showsWithActor.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -338,7 +353,7 @@ void SearchClass::SearchMovieByActor(string actor){
     int count;
     if(movieWithActor.size() > 10 ){
         
-        count = 10;;
+        count = 10;
         
     }else{
         
@@ -351,7 +366,8 @@ void SearchClass::SearchMovieByActor(string actor){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % movieWithActor.size(); // Generate a random index
-        cout << "\t" << movieWithActor.at(idx)->getTitle()  << endl;
+        this->SearchMovieByTitle(movieWithActor.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -386,7 +402,8 @@ void SearchClass::SearchBookByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % bookInYear.size(); // Generate a random index
-        cout << "\t" << bookInYear.at(idx)->getTitle()  << endl;
+        this->SearchBookByTitle(bookInYear.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -419,7 +436,8 @@ void SearchClass::SearchMovieByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % movieInYear.size(); // Generate a random index
-        cout << "\t" << movieInYear.at(idx)->getTitle()  << endl;
+        this->SearchMovieByTitle(movieInYear.at(idx)->getTitle());
+        cout << endl;
         
     }
     
@@ -454,7 +472,8 @@ void SearchClass::SearchShowByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showInYear.size(); // Generate a random index
-        cout << "\t" << showInYear.at(idx)->getTitle() << endl;
+        this->SearchShowByTitle(showInYear.at(idx)->getTitle());
+        cout << endl;
         
     }
     
