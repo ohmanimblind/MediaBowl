@@ -3,3 +3,5 @@ CMakeFiles/
 Makefile
 runAllTests
 main
+CMakeCache.txt
+.DS_Store
