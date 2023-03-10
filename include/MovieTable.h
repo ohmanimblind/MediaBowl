@@ -33,7 +33,8 @@ public:
         if (iter != genreMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Movie*> table;
+            return table;
         }
     }
 
@@ -42,7 +43,8 @@ public:
         if (iter != directorMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Movie*> table;
+            return table;
         }
     }
 
@@ -51,7 +53,8 @@ public:
         if (iter != actorMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Movie*> table;
+            return table;
         }
     }
 
@@ -60,14 +63,15 @@ public:
         if (iter != releaseYearMap.end()) {
             return iter->second;
         } else {
-            return {};
+            vector<Movie*> table;
+            return table;
         }
     }
 
 private:
     unordered_map<string, Movie*> movies;
-    unordered_map<string, vector<Movie*>> genreMap;
-    unordered_map<string, vector<Movie*>> directorMap;
-    unordered_map<string, vector<Movie*>> actorMap;
-    unordered_map<int, vector<Movie*>> releaseYearMap;
+    unordered_map<string, vector<Movie*> > genreMap;
+    unordered_map<string, vector<Movie*> > directorMap;
+    unordered_map<string, vector<Movie*> > actorMap;
+    unordered_map<int, vector<Movie*> > releaseYearMap;
 };

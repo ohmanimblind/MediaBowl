@@ -141,8 +141,8 @@ void printMenu(SearchClass search){
         }
         cout << endl;
         cout << "----------------------------------------------------------------" << endl;
-        getch();
-        system ("clear");
+        //getc();
+        //system ("clear");
 
     }while(choice != "6" && choice != "6." && choice != "q" && choice != "quit");
 
