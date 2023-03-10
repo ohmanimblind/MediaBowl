@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/SearchClass.h"
+#include "../include/User.h"
 #include <stdlib.h>
 
 using namespace std;
@@ -15,24 +16,25 @@ void printHelp(){
     cout << endl;
 }
 
-void movieOption(SearchClass search){
+void movieOption(User user){
     cout << "Search for movie" << endl;
-
+    user.searchMovie();
     //will call function that handles searching for movie
 }
 
-void bookOption(SearchClass search){
+void bookOption(User user){
     cout << "Search for book" << endl;
-    search.SearchBookByTitle("Crime and Punishment");
+    user.searchBook();
     //will call function that handles searching for book
 }
 
-void showOption(SearchClass search){
+void showOption(User user){
     cout << "Search for show" << endl;
+    user.searchShow();
     //will call function that handles searching for show
 }
 
-void recommendationOption(SearchClass search){
+void recommendationOption(User user){
     string choice;
     //system ("clear");
     cout << "--Recommendations--" << endl;
@@ -66,7 +68,7 @@ void recommendationOption(SearchClass search){
     }
 }
 
-void printMenu(SearchClass search){
+void printMenu(User user){
     /*
     MediaBowl
 
@@ -110,16 +112,16 @@ void printMenu(SearchClass search){
         getline(cin, choice);
         cout << endl;
         if(choice == "1" || choice == "1."){
-            movieOption(search);
+            movieOption(user);
         }
         else if(choice == "2" || choice == "2."){
-            bookOption(search);
+            bookOption(user);
         }
         else if(choice == "3" || choice == "3."){
-            showOption(search);
+            showOption(user);
         }
         else if(choice == "4" || choice == "4."){
-            recommendationOption(search);
+            recommendationOption(user);
         }
         else if(choice == "5" || choice == "5." || choice == "h" || choice == "help"){
             printHelp();
@@ -176,9 +178,9 @@ getline(cin, movieFile);
  ^^ ^^
 */
 
-SearchClass searching(bookFile, movieFile);
+User user(bookFile, movieFile);
 
-printMenu(searching);
+printMenu(user);
 
 return 0;
 

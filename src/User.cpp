@@ -13,37 +13,42 @@ search = new SearchClass(b,ms);
 
 void User::searchBook(){
 
-int option;
+    string choice;
 	string userAnswer = "";
-	cout << "How would you like to search for a book ?" << endl;
-	cout << "Enter 1 for Title , 2 for Author, 3 for Genre" << endl;
-	cin >> option;
+	cout << "Search for BOOK by: " << endl;
+    cout << "\t1. Title" << endl;
+    cout << "\t2. Author" << endl;
+    cout << "\t3. Genre" << endl;
+    getline(cin, choice);
+    
+    cout << endl;
 	
-	if (option == 1) { //Name
-		cout << "What is the title of the Book you're looking for? " << endl;
+	if (choice == "1" || choice == "1." || choice == "Title" || choice == "title") { //Name
+		cout << "\tEnter the title of the book: ";
 		getline(cin,userAnswer);
-		cout << "Looking for information on " << userAnswer << endl;
+		cout << "\tLooking for information on " << userAnswer << endl;
 
 		search->SearchBookByTitle(userAnswer);
 
 
-	}if (option == 2) { //Author
-		cout << "Which Author are you interested in? " << endl; 
-		getline(cin,userAnswer);;
-		cout << "Looking for Books by " << userAnswer << endl;
+	} else if (choice == "2" || choice == "2." || choice == "Author" || choice == "author") { //Author
+		cout << "\tEnter the author of the book: ";
+		getline(cin,userAnswer);
+		cout << "\tLooking for Books by " << userAnswer << endl;
 		
 		search->SearchBookByAuthor(userAnswer);
 
-	}if (option == 3) { //Genre
-		cout << "What Genre are you looking for ?" << endl;
+	} else if (choice == "3" || choice == "3." || choice == "Genre" || choice == "genre") { //Genre
+		cout << "\tEnter the genre of the book: ";
 		getline(cin,userAnswer);;
-		cout << "Looking for Genre " << userAnswer; 
+		cout << "\tLooking for Genre " << userAnswer;
 
 		search->SearchBookByGenre(userAnswer);
 
 	}
 	else {
-		cout << "Invalid Menu Choice. Returning to main menu" << endl;
+        cout << "INVALID CHOICE" << endl;
+        cout << "Returning to main menu." << endl;
 	}
 
 
@@ -51,104 +56,98 @@ int option;
 }
 
 void User::searchMovie() {
-	int option;
-	string userAnswer = "";
-	cout << "How would you like to search for a Movie ?" << endl;
-	cout << "Enter 1 for Title , 2 for Director, 3 for Genre, 4 for Actors" << endl;
-	cin >> option;
+    string choice;
+    string userAnswer = "";
+    cout << "Search for MOVIE by: " << endl;
+    cout << "\t1. Title" << endl;
+    cout << "\t2. Director" << endl;
+    cout << "\t3. Genre" << endl;
+    cout << "\t4. Actor" << endl;
+    getline(cin, choice);
+    
+    cout << endl;
+    
+    if (choice == "1" || choice == "1." || choice == "Title" || choice == "title") { //Name
+        cout << "\tEnter the title of the movie: ";
+        getline(cin,userAnswer);
+        cout << "\tLooking for information on " << userAnswer << endl;
 
-	if (option == 1) { //Name
-		cout << "What is the title of the Movie you're looking for? " << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for information on " << userAnswer << endl;
-
-		search->SearchMovieByTitle(userAnswer);
-
-
-	}if (option == 2) { //Author
-		cout << "Which Director are you interested in? " << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for Movies by " << userAnswer << endl;
-
-		search->SearchMovieByDirector(userAnswer);
-
-	}if (option == 3) { //Genre
-		cout << "What Genre are you looking for ?" << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for Genre " << userAnswer;
-
-		search->SearchMovieByGenre(userAnswer);
-
-	}if (option == 4) {
-		cout << "What Actor are you interested in ?" << endl;
-        cin.ignore();
-		getline(cin,userAnswer); 
-		cout << "Looking for Movies with " << userAnswer << endl;
-
-		search->SearchMovieByActor(userAnswer);
-	}
-	else {
-		cout << "Invalid Menu Choice. Returning to main menu" << endl;
-	}
+        search->SearchMovieByTitle(userAnswer);
 
 
+    } else if (choice == "2" || choice == "2." || choice == "Author" || choice == "author") { //Director
+        cout << "\tEnter the director of the movie: ";
+        getline(cin,userAnswer);
+        cout << "\tLooking for movies by " << userAnswer << endl;
+        
+        search->SearchMovieByDirector(userAnswer);
 
+    } else if (choice == "3" || choice == "3." || choice == "Genre" || choice == "genre") { //Genre
+        cout << "\tEnter the genre of the movie: ";
+        getline(cin,userAnswer);;
+        cout << "\tLooking for genre " << userAnswer;
 
+        search->SearchMovieByGenre(userAnswer);
+
+    } else if (choice == "4" || choice == "4." || choice == "Actor" || choice == "actor") { //Genre
+        cout << "\tEnter the actor of the movie: ";
+        getline(cin,userAnswer);;
+        cout << "\tLooking for movies by " << userAnswer;
+
+        search->SearchMovieByActor(userAnswer);
+
+    }
+    else {
+        cout << "INVALID CHOICE" << endl;
+        cout << "Returning to main menu." << endl;
+    }
 }
 
 void User::searchShow() {
-	int option;
-	string userAnswer = "";
-	cout << "How would you like to search for a Show ?" << endl;
-	cout << "Enter 1 for Title , 2 for Director, 3 for Genre, 4 for Actors" << endl;
-	cin >> option;
+    string choice;
+    string userAnswer = "";
+    cout << "Search for SHOW by: " << endl;
+    cout << "\t1. Title" << endl;
+    cout << "\t2. Director" << endl;
+    cout << "\t3. Genre" << endl;
+    cout << "\t4. Actor" << endl;
+    getline(cin, choice);
+    
+    cout << endl;
+    
+    if (choice == "1" || choice == "1." || choice == "Title" || choice == "title") { //Name
+        cout << "\tEnter the title of the SHOW: ";
+        getline(cin,userAnswer);
+        cout << "\tLooking for information on " << userAnswer << endl;
 
-	if (option == 1) { //Name
-		cout << "What is the title of the Show you're looking for? " << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for information on " << userAnswer << endl;
-
-		search->SearchMovieByTitle(userAnswer);
+        search->SearchShowByTitle(userAnswer);
 
 
-	}if (option == 2) { //Author
-		cout << "Which Director are you interested in? " << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for Shows by " << userAnswer << endl;
-
+    } else if (choice == "2" || choice == "2." || choice == "Author" || choice == "author") { //Author
+        cout << "\tEnter the director of the SHOW: ";
+        getline(cin,userAnswer);
+        cout << "\tLooking for shows by " << userAnswer << endl;
+        
         search->SearchShowByDirector(userAnswer);
 
-	}if (option == 3) { //Genre
-		cout << "What Genre are you looking for ?" << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for Genre " << userAnswer;
+    } else if (choice == "3" || choice == "3." || choice == "Genre" || choice == "genre") { //Genre
+        cout << "\tEnter the genre of the SHOW: ";
+        getline(cin,userAnswer);;
+        cout << "\tLooking for genre " << userAnswer;
 
-		search->SearchShowByGenre(userAnswer);
+        search->SearchShowByGenre(userAnswer);
 
-	}if (option == 4) {
-		cout << "What Actor are you interested in ?" << endl;
-		getline(cin,userAnswer);;
-		cout << "Looking for Shows with " << userAnswer << endl;
+    } else if (choice == "4" || choice == "4." || choice == "Actor" || choice == "actor") { //Genre
+        cout << "\tEnter the actor of the SHOW: ";
+        getline(cin,userAnswer);;
+        cout << "\tLooking for shows by " << userAnswer;
 
-		search->SearchShowByActor(userAnswer);
-	}
-	else {
-		cout << "Invalid Menu Choice. Returning to main menu" << endl;
-	}
+        search->SearchShowByActor(userAnswer);
 
-
-}
-
-
-void User::searchGenre() {
-	string userAnswer;
-	cout << "Enter Genre you are interested in: " << endl;
-	getline(cin,userAnswer);;
-	cout << "Here are Books with the Genre of the " << userAnswer << "Genre" << endl;
-	search->SearchBookByGenre(userAnswer);
-	cout << "Here are Movies with the Genre of the " << userAnswer << "Genre" << endl;
-	search->SearchMovieByGenre(userAnswer);
-	cout << "Here are Shows with the Genre of the " << userAnswer << "Genre" << endl;
-	search->SearchShowByGenre(userAnswer);
+    }
+    else {
+        cout << "INVALID CHOICE" << endl;
+        cout << "Returning to main menu." << endl;
+    }
 
 }
