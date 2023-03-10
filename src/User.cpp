@@ -19,6 +19,8 @@ void User::searchBook(){
     cout << "\t1. Title" << endl;
     cout << "\t2. Author" << endl;
     cout << "\t3. Genre" << endl;
+    cout << endl;
+    cout << "Enter your choice: ";
     getline(cin, choice);
     
     cout << endl;
@@ -63,6 +65,8 @@ void User::searchMovie() {
     cout << "\t2. Director" << endl;
     cout << "\t3. Genre" << endl;
     cout << "\t4. Actor" << endl;
+    cout << endl;
+    cout << "Enter your choice: ";
     getline(cin, choice);
     
     cout << endl;
@@ -111,6 +115,8 @@ void User::searchShow() {
     cout << "\t2. Director" << endl;
     cout << "\t3. Genre" << endl;
     cout << "\t4. Actor" << endl;
+    cout << endl;
+    cout << "Enter your choice: ";
     getline(cin, choice);
     
     cout << endl;

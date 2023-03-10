@@ -165,11 +165,7 @@ int main(){
 
 //This will need to be error handled because the name can be wrong
 
-string bookFile, movieFile;
-cout << "Enter the name of the book file: ";
-getline(cin, bookFile);
-cout << "Enter the name of the movie file: ";
-getline(cin, movieFile);
+string bookFile = "TestBooks.txt", movieFile = "WebScrapedMS.txt";
 
 /*
 ('v')

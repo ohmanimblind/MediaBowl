@@ -18,21 +18,22 @@ void SearchClass::SearchBookByTitle(string title){
     Book* book = mediaData->books.getBy_title(title);
     
     if(book != nullptr){
-        cout << "Name: " << book->getTitle() << endl;
-        cout << "Description: " << endl;
+        cout << "\t-----------" << endl;
+        cout << "\tName: " << book->getTitle() << endl;
+        cout << "\tDescription: " << endl;
         cout << book->getDescription() << endl;
         
-        cout <<"Rating: " << book->getRating() << endl;
-        cout <<"Year: " << book->getRating() << endl;
-        cout << "Genres: " ;
+        cout <<"\tRating: " << book->getRating() << endl;
+        cout <<"\tYear: " << book->getRating() << endl;
+        cout << "\tGenres: " ;
         book->displayGenres() ;
         cout << endl;
-        cout <<  "Authors: " ;
+        cout <<  "\tAuthors: " ;
         book->displayAuthors();
-        cout << endl << endl << endl;
+        cout << "\t-----------" << endl;
     }
     else{
-        cout << "The book " << title << " was not found." << endl;
+        cout << "\tThe book " << title << " was not found." << endl;
     }
 }
 
@@ -41,23 +42,23 @@ void SearchClass::SearchMovieByTitle(string title){
     Movie* movie = mediaData->movies.getByTitle(title);
     
     if(movie != nullptr){
-        cout << "Name: " << movie->getTitle() << endl;
-        cout <<"Description: " << endl << movie->getDescription() << endl;
-        
-        cout <<"Rating: " << movie->getRating() << endl;
-        cout  <<"Year: " << movie->getYear() << endl;
-        cout << "Genres: " ;
+        cout << "\t-----------" << endl;
+        cout << "\tTitle: " << movie->getTitle() << endl;
+        cout << "\tDescription: " << movie->getDescription() << endl;
+        cout << "\tRating: " << movie->getRating() << endl;
+        cout << "\tYear: " << movie->getYear() << endl;
+        cout << "\tGenres: " ;
         movie->displayGenres();
         cout << endl;
-        cout << "Actors: " << endl;
+        cout << "\tActors: ";
         movie->displayActors();
         cout << endl;
-        cout << "Director: " << movie->getDirector() << endl;
-        cout << "Runtime: " << movie->getRuntime() << endl;
-        cout << endl << endl << endl;
+        cout << "\tDirector: " << movie->getDirector() << endl;
+        cout << "\tRuntime: " << movie->getRuntime() << endl;
+        cout << "\t-----------" << endl;
     }
     else{
-        cout << "The movie " << title << " was not found." << endl;
+        cout << "\tThe movie " << title << " was not found." << endl;
     }
     
     
@@ -67,23 +68,23 @@ void SearchClass::SearchShowByTitle(string title){
     
     Show* show = mediaData->shows.getByTitle(title);
     if(show != nullptr){
-        cout << "Name: " << show->getTitle() << endl;
-        cout <<"Description: " << endl << show->getDescription() << endl;
+        cout << "\t-----------" << endl;
+        cout << "\tName: " << show->getTitle() << endl;
+        cout << "\tDescription: " << show->getDescription() << endl;
         
-        cout <<"Rating: " << show->getRating() << endl;
-        cout  <<"Year: " << show->getYear() << endl;
-        cout << "Genres: " ;
+        cout << "\tRating: " << show->getRating() << endl;
+        cout << "\tYear: " << show->getYear() << endl;
+        cout << "\tGenres: " ;
         show->displayGenres();
         cout << endl;
-        cout << "Actors: " << endl;
+        cout << "\tActors: ";
         show->displayActors();
         cout << endl;
-        cout << "Director: " << show->getDirector() << endl;
-        
-        cout << endl << endl << endl;
+        cout << "\tDirector: " << show->getDirector() << endl;
+        cout << "\t-----------" << endl;
     }
     else{
-        cout << "The show " << title << " was not found." << endl;
+        cout << "\tThe show " << title << " was not found." << endl;
     }
 }
 
@@ -96,7 +97,7 @@ void SearchClass::SearchMovieByGenre(string genre){
     int count;
     if(moviesWithGenre.size() > 10 ){
         
-        count = 10;;
+        count = 10;
         
     }else{
         
@@ -108,12 +109,12 @@ void SearchClass::SearchMovieByGenre(string genre){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = std::rand() % moviesWithGenre.size(); // Generate a random index
-        cout << moviesWithGenre.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << moviesWithGenre.at(idx)->getTitle() << endl;
         
     }
     
     if(count == 0){
-        cout << "No movie of genre "  << genre << " was found." << endl;
+        cout << "\tNo movie of genre "  << genre << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -141,12 +142,12 @@ void SearchClass::SearchBookByGenre(string genre){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = std::rand() % booksWithGenre.size(); // Generate a random index
-        cout << booksWithGenre.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << booksWithGenre.at(idx)->getTitle() << endl;
         
     }
     
     if(count == 0){
-        cout << "No book of genre "  << genre << " was found." << endl;
+        cout << "\tNo book of genre "  << genre << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -175,12 +176,12 @@ void SearchClass::SearchShowByGenre(string genre){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = std::rand() % showsWithGenre.size(); // Generate a random index
-        cout << showsWithGenre.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << showsWithGenre.at(idx)->getTitle() << endl;
         
     }
     
     if(count == 0){
-        cout << "No show of genre "  << genre << " was found." << endl;
+        cout << "\tNo show of genre "  << genre << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -208,12 +209,12 @@ void SearchClass::SearchBookByAuthor(string author){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % booksWithAuthor.size(); // Generate a random index
-        cout << booksWithAuthor.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << booksWithAuthor.at(idx)->getTitle()  << endl;
         
     }
     
     if(count == 0){
-        cout << "No book by author " << author << " was found." << endl;
+        cout << "\tNo book by author " << author << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -244,12 +245,12 @@ void SearchClass::SearchMovieByDirector(string director){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % moviesWithDirector.size(); // Generate a random index
-        cout << moviesWithDirector.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << moviesWithDirector.at(idx)->getTitle()  << endl;
         
     }
     
     if(count == 0){
-        cout << "No movie by director " << director << " was found." << endl;
+        cout << "\tNo movie by director " << director << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -279,7 +280,7 @@ void SearchClass::SearchShowByDirector(string director){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showsWithDirector.size(); // Generate a random index
-        cout << showsWithDirector.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << showsWithDirector.at(idx)->getTitle()  << endl;
         
     }
     
@@ -287,7 +288,7 @@ void SearchClass::SearchShowByDirector(string director){
     
     
     if(count == 0){
-        cout << "No show by director "  << director << " was found." << endl;
+        cout << "\tNo show by director "  << director << " was found." << endl;
     }
     
     
@@ -316,14 +317,14 @@ void SearchClass::SearchShowByActor(string actor){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showsWithActor.size(); // Generate a random index
-        cout << showsWithActor.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << showsWithActor.at(idx)->getTitle()  << endl;
         
     }
     
     cout << endl << endl;
     
     if(count == 0){
-        cout << "No show by actor "  << actor << " was found." << endl;
+        cout << "\tNo show by actor "  << actor << " was found." << endl;
     }
     
     
@@ -350,12 +351,12 @@ void SearchClass::SearchMovieByActor(string actor){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % movieWithActor.size(); // Generate a random index
-        cout << movieWithActor.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << movieWithActor.at(idx)->getTitle()  << endl;
         
     }
     
     if(count == 0){
-        cout << "No movie by actor "  << actor << " was found." << endl;
+        cout << "\tNo movie by actor "  << actor << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -385,12 +386,12 @@ void SearchClass::SearchBookByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % bookInYear.size(); // Generate a random index
-        cout << bookInYear.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << bookInYear.at(idx)->getTitle()  << endl;
         
     }
     
     if(count == 0){
-        cout << "No book from year "  << year << " was found." << endl;
+        cout << "\tNo book from year "  << year << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -418,12 +419,12 @@ void SearchClass::SearchMovieByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % movieInYear.size(); // Generate a random index
-        cout << movieInYear.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << movieInYear.at(idx)->getTitle()  << endl;
         
     }
     
     if(count == 0){
-        cout << "No movie from year "  << year << " was found." << endl;
+        cout << "\tNo movie from year "  << year << " was found." << endl;
     }
     
     cout << endl << endl;
@@ -453,12 +454,12 @@ void SearchClass::SearchShowByYear(int year){
     // Print out count random elements
     for (int i = 0; i < count; i++) {
         int idx = rand() % showInYear.size(); // Generate a random index
-        cout << showInYear.at(idx)->getTitle() << " " << endl;
+        cout << "\t" << showInYear.at(idx)->getTitle() << endl;
         
     }
     
     if(count == 0){
-        cout << "No show from year "  << year << " was found." << endl;
+        cout << "\tNo show from year "  << year << " was found." << endl;
     }
     
     cout << endl << endl;
