@@ -22,7 +22,7 @@ cout << "Description: " << endl;
 cout << book->getDescription() << endl;
 
 cout <<"Rating: " << book->getRating() << endl;
-cout <<"Year: " << book->getRating() << endl;
+cout <<"Year: " << book->getYear() << endl;
 cout << "Genres: " ;
  book->displayGenres() ;
  cout << endl;
