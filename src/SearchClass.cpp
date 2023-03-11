@@ -114,7 +114,7 @@ void SearchClass::SearchMovieByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % moviesWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -154,7 +154,7 @@ void SearchClass::SearchBookByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % booksWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -195,7 +195,7 @@ void SearchClass::SearchShowByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -234,7 +234,7 @@ void SearchClass::SearchBookByAuthor(string author){
     while(newIndex.size() < count){
         int idx = std::rand() % booksWithAuthor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -275,7 +275,7 @@ void SearchClass::SearchMovieByDirector(string director){
     while(newIndex.size() < count){
         int idx = std::rand() % moviesWithDirector.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -315,7 +315,7 @@ void SearchClass::SearchShowByDirector(string director){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithDirector.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -357,7 +357,7 @@ void SearchClass::SearchShowByActor(string actor){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithActor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -396,7 +396,7 @@ void SearchClass::SearchMovieByActor(string actor){
     while(newIndex.size() < count){
         int idx = std::rand() % movieWithActor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -436,7 +436,7 @@ void SearchClass::SearchBookByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % bookInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -474,7 +474,7 @@ void SearchClass::SearchMovieByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % movieInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -514,7 +514,7 @@ void SearchClass::SearchShowByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % showInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -532,11 +532,60 @@ void SearchClass::SearchShowByYear(int year){
     
 }
 
-// void SearchClass::getBookRec(string title){
+void SearchClass::getBookRec(string title){
+    
+    Book* searchBok = mediaData->books.getBy_title(title);
+    
+    
+    
+}
 
-// Book* searchBok = mediaData->books.getBy_title(title);
-
-
-
-// }
+void SearchClass::getMovieRec(string title){
+    Movie* searchMovie = mediaData->movies.getByTitle(title);
+    if(searchMovie){
+        vector<string> genres = searchMovie->getGenres();
+        if(genres.size() > 1){
+            vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(0));
+            vector<Movie*> finalVect;
+            vector<Movie*> prev = firstPass;
+            int counter = 0;
+            cout << genres.at(0) << endl;
+            for(int i = 1; i < genres.size(); i++){
+                cout << genres.at(i);
+                vector<Movie*> temp = mediaData->movies.getByGenre(genres.at(i));
+                if(i == 1){
+                    for(int j = 0; j < firstPass.size(); j++){
+                        for(int k = 0; k < temp.size(); k++){
+                            if(firstPass.at(j) == temp.at(k)){
+                                finalVect.push_back(firstPass.at(j));
+                            }
+                        }
+                    }
+                    if(i < genres.size() - 1){
+                        counter = finalVect.size();
+                    }
+                }
+                else{
+                    for(int j = 0; j < counter; j++){
+                        for(int k = 0; k < temp.size(); k++){
+                            if(finalVect.at(j) == temp.at(k) && temp.at(k) != searchMovie){
+                                finalVect.push_back(finalVect.at(j));
+                            }
+                        }
+                    }
+                    if(counter < finalVect.size() && i < genres.size() - 1){
+                        counter = finalVect.size();
+                    }
+                }
+                
+                cout << counter << endl;
+            }
+            
+                for(int i = finalVect.size() - 1; i > counter && i > finalVect.size() - 6; i--){
+                    this->SearchMovieByTitle(finalVect.at(i)->getTitle());
+                    cout << endl;
+            }
+        }
+    }
+}
 

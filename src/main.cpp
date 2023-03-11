@@ -48,7 +48,8 @@ void recommendationOption(User* user){
     getline(cin, choice);
     cout << endl;
     if(choice == "1" || choice == "1."){
-        cout << "Movie recommendation" << endl << flush;
+        cout << "\tMovie recommendation" << endl << flush;
+        user->getMovieRec();
         //call movie recommender
     }
     else if(choice == "2" || choice == "2."){
