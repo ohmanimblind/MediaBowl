@@ -8,6 +8,9 @@ public:
     ShowTable() {}
 
     void insertShow(Show* show) {
+        if(shows[show->getTitle()]){
+            return;
+        }
         shows[show->getTitle()] = show;
         for (auto& genre : show->getGenres()) {
             genreMap[genre].push_back(show);

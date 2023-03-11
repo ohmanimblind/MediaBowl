@@ -11,6 +11,9 @@ public:
     unordered_map<string, vector<Book*> > authorMap;
 
     void insert(Book* book) {
+        if(_titleMap[book->getTitle()]){
+            return;
+        }
         _titleMap[book->getTitle()] = book;
         ratingMap[book->getRating()].push_back(book);
         _yearMap[book->getYear()].push_back(book);

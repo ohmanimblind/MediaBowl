@@ -8,7 +8,10 @@ public:
     MovieTable() {}
 
     void insertMovie(Movie* movie) {
-        movies[movie->getTitle()] = movie;
+        if(movies[movie->getTitle()]){
+            return;
+        }
+        movies[movie->getTitle()]= movie;
         for (auto& genre : movie->getGenres()) {
             genreMap[genre].push_back(movie);
         }
