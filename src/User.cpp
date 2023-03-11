@@ -11,6 +11,11 @@ search = new SearchClass(b,ms);
 
 }
 
+User::~User(){
+    delete search;
+    cout << "done user" << endl;
+}
+
 void User::searchBook(){
 
     string choice;
@@ -157,4 +162,20 @@ void User::searchShow() {
         cout << "\tReturning to main menu." << endl;
     }
 
+}
+
+void User::getMovieRec(){
+    
+}
+
+void User::getBookRec(){
+    
+}
+
+void User::getShowRec(){
+    
+}
+
+void User::getMediaRec(){
+    
 }

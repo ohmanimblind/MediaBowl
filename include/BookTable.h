@@ -9,6 +9,14 @@ public:
     unordered_map<int, vector<Book*> > _yearMap;
     unordered_map<string, vector<Book*> > genreMap;
     unordered_map<string, vector<Book*> > authorMap;
+    
+    void clearTable(){
+        _titleMap.clear();
+        ratingMap.clear();
+        _yearMap.clear();
+        genreMap.clear();
+        authorMap.clear();
+    }
 
     void insert(Book* book) {
         if(_titleMap[book->getTitle()]){

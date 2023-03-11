@@ -11,15 +11,15 @@
 using namespace std;
 
 class Data{
-
+    
 public:
-MovieTable movies;
-BookTable books;
-ShowTable shows;
-
-Data(string bookFile , string movieandshowfile);
-
-
+    MovieTable movies;
+    BookTable books;
+    ShowTable shows;
+    
+    Data(string bookFile , string movieandshowfile);
+    ~Data();
+    
 };
 
 #endif

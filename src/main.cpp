@@ -8,7 +8,7 @@ using namespace std;
 void printHelp(){
     cout << "--HELP--" << endl;
     cout << endl;
-
+    
     cout << "\tEnter the option number for your choice" << endl;
     cout << "\tFor example: " << endl;
     cout << "\t1. Search for MOVIE" << endl;
@@ -16,25 +16,25 @@ void printHelp(){
     cout << endl;
 }
 
-void movieOption(User user){
+void movieOption(User* user){
     cout << "--SEARCH--" << endl;
-    user.searchMovie();
+    user->searchMovie();
     //will call function that handles searching for movie
 }
 
-void bookOption(User user){
+void bookOption(User* user){
     cout << "--SEARCH--" << endl;
-    user.searchBook();
+    user->searchBook();
     //will call function that handles searching for book
 }
 
-void showOption(User user){
+void showOption(User* user){
     cout << "--SEARCH--" << endl;
-    user.searchShow();
+    user->searchShow();
     //will call function that handles searching for show
 }
 
-void recommendationOption(User user){
+void recommendationOption(User* user){
     string choice;
     //system ("clear");
     cout << "--RECOMMENDATION--" << endl;
@@ -68,36 +68,36 @@ void recommendationOption(User user){
     }
 }
 
-void printMenu(User user){
+void printMenu(User* user){
     /*
-    MediaBowl
-
-    Instructions:
-        Enter the option number for your choice
-
-    Menu:
-        1. Search for a MOVIE by title
-        2. Search for a BOOK by title
-        3. Search for a SHOW by title
-        4. Get recommendations
-        5. Help
-        6. Quit
-
-    Enter your choice:
-    */
-
+     MediaBowl
+     
+     Instructions:
+     Enter the option number for your choice
+     
+     Menu:
+     1. Search for a MOVIE by title
+     2. Search for a BOOK by title
+     3. Search for a SHOW by title
+     4. Get recommendations
+     5. Help
+     6. Quit
+     
+     Enter your choice:
+     */
+    
     cout << endl;
     cout << "----------------------------------------------------------------" << endl;
-
+    
     cout << "MediaBowl" << endl;
     cout << endl;
-
+    
     cout << "Instructions:" << endl;
     cout << "\tEnter the option number for your choice" << endl;
     cout << endl;
-
+    
     string choice;
-
+    
     do{
         cout << "Menu:" << endl;
         cout << "\t1. Search for MOVIE" << endl;
@@ -107,7 +107,7 @@ void printMenu(User user){
         cout << "\t5. Help" << endl;
         cout << "\t6. Quit" << endl;
         cout << endl;
-
+        
         cout << "Enter your choice: ";
         getline(cin, choice);
         cout << endl;
@@ -145,42 +145,44 @@ void printMenu(User user){
         cout << "----------------------------------------------------------------" << endl;
         //getc();
         //system ("clear");
-
+        
     }while(choice != "6" && choice != "6." && choice != "q" && choice != "quit");
-
+    
     cout << "Thank you." << endl;
     cout << endl;
 }
 
 int main(){
-
-//string bookFile = "TestBooks.txt";
-//string movieShowFile = "WebScrapedMS.txt";
-
-//SearchClass searching(bookFile, movieShowFile);
-
-//searching.SearchBookByTitle("Crime and Punishment");
-//searching.SearchMovieByTitle("Magic Mike");
-//searching.SearchShowByTitle("Gilmore Girls");
-//searching.SearchBookByGenre("Crime");
-//searching.SearchMovieByActor("Channing Tatum");
-
-//This will need to be error handled because the name can be wrong
-
-string bookFile = "TestBooks.txt", movieFile = "return.txt";
-
-/*
-('v')
-//-=-\
-(_=/)
- ^^ ^^
-*/
-
-User user(bookFile, movieFile);
-
-printMenu(user);
-
-return 0;
-
+    
+    //string bookFile = "TestBooks.txt";
+    //string movieShowFile = "WebScrapedMS.txt";
+    
+    //SearchClass searching(bookFile, movieShowFile);
+    
+    //searching.SearchBookByTitle("Crime and Punishment");
+    //searching.SearchMovieByTitle("Magic Mike");
+    //searching.SearchShowByTitle("Gilmore Girls");
+    //searching.SearchBookByGenre("Crime");
+    //searching.SearchMovieByActor("Channing Tatum");
+    
+    //This will need to be error handled because the name can be wrong
+    
+    string bookFile = "TestBooks.txt", movieFile = "return.txt";
+    
+    /*
+     ('v')
+     //-=-\
+     (_=/)
+     ^^ ^^
+     */
+    
+    User* user = new User(bookFile, movieFile);
+    
+    printMenu(user);
+    
+    delete user;
+    
+    return 0;
+    
 }
 
