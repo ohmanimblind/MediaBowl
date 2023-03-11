@@ -157,11 +157,13 @@ int main(){
 //string bookFile = "TestBooks.txt";
 //string movieShowFile = "WebScrapedMS.txt";
 
-// searching.SearchBookByTitle("Crime and Punishment");
-// searching.SearchMovieByTitle("Magic Mike");
-// searching.SearchShowByTitle("Gilmore Girls");
-// searching.SearchBookByGenre("Crime");
-// searching.SearchMovieByActor("Channing Tatum");
+//SearchClass searching(bookFile, movieShowFile);
+
+//searching.SearchBookByTitle("Crime and Punishment");
+//searching.SearchMovieByTitle("Magic Mike");
+//searching.SearchShowByTitle("Gilmore Girls");
+//searching.SearchBookByGenre("Crime");
+//searching.SearchMovieByActor("Channing Tatum");
 
 //This will need to be error handled because the name can be wrong
 
