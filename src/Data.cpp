@@ -5,7 +5,7 @@ using namespace std;
 Data::Data(string bookFile, string movieshowFile){
     
     
-    StackMaker* fillStack = new StackMaker(bookFile,movieshowFile);
+    fillStack = new StackMaker(bookFile,movieshowFile);
     
     stack<Movie*> movieStack = fillStack->getMovieStack();
     stack<Book*> bookStack = fillStack->getBookStack();
@@ -36,7 +36,7 @@ Data::~Data(){
     movies.clearTable();
     books.clearTable();
     shows.clearTable();
-    cout << "done data" << endl;
+    delete fillStack;
 }
 
 

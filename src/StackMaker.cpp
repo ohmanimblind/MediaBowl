@@ -169,7 +169,23 @@ else{
 
 
 
-
+StackMaker::~StackMaker(){
+	while(!movieStack.empty()){
+		Movie * m = movieStack.top();
+		movieStack.pop();
+		delete m;
+	}
+	while(!bookStack.empty()){
+		Book * b = bookStack.top();
+		bookStack.pop();
+		delete b;
+	}
+	while(!showStack.empty()){
+		Show * s = showStack.top();
+		showStack.pop();
+		delete s;
+	}
+}
 
 
 stack<Book*> StackMaker::getBookStack(){

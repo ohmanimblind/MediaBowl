@@ -11,7 +11,8 @@
 using namespace std;
 
 class Data{
-    
+	private:
+	    StackMaker* fillStack;	
 public:
     MovieTable movies;
     BookTable books;

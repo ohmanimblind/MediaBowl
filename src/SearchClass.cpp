@@ -15,7 +15,6 @@ SearchClass::SearchClass(string b , string ms){
 
 SearchClass::~SearchClass(){
     delete mediaData;
-    cout << "done search" << endl;
 }
 
 void SearchClass::SearchBookByTitle(string title){

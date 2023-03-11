@@ -13,7 +13,6 @@ search = new SearchClass(b,ms);
 
 User::~User(){
     delete search;
-    cout << "done user" << endl;
 }
 
 void User::searchBook(){
