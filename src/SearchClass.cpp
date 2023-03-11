@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "../include/SearchClass.h"
-
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
