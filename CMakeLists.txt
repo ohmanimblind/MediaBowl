@@ -12,7 +12,7 @@ ADD_EXECUTABLE(main
     src/StackMaker.cpp
     src/SearchClass.cpp
     src/Data.cpp
-    
+    src/User.cpp
 
 )
 

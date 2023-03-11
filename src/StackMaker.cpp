@@ -68,15 +68,17 @@ else{
         getline(ss, type, '#');
         if (type == "Movie") {
             string title, description, director,runtime;
+            string rating_str;
             double rating;
+            string release_year_str;
             int release_year;
             vector<string> genres, actors;
             getline(ss, title, '#');
             getline(ss, description, '#');
             ss >> rating;
             ss.ignore(1);
-            ss >> release_year;
-            ss.ignore(1);
+            getline(ss, release_year_str, '#');
+            release_year = stoi(release_year_str.substr(0, 4));
             string genre_list;
             getline(ss, genre_list, '#');
             stringstream genre_stream(genre_list);
@@ -108,15 +110,17 @@ else{
         }
         else if (type == "Show") {
              string title, description, director,runtime;
+            string rating_str;
             double rating;
+            string release_year_str;
             int release_year;
             vector<string> genres, actors;
             getline(ss, title, '#');
             getline(ss, description, '#');
             ss >> rating;
             ss.ignore(1);
-            ss >> release_year;
-            ss.ignore(1);
+            getline(ss, release_year_str, '#');
+            release_year = stoi(release_year_str.substr(0, 4));
             string genre_list;
             getline(ss, genre_list, '#');
             stringstream genre_stream(genre_list);

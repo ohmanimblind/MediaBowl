@@ -1,5 +1,7 @@
 #include <iostream>
 #include "../include/SearchClass.h"
+#include "../include/User.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -14,55 +16,59 @@ void printHelp(){
     cout << endl;
 }
 
-void movieOption(){
-    cout << "Search for movie" << endl;
+void movieOption(User user){
+    cout << "--SEARCH--" << endl;
+    user.searchMovie();
     //will call function that handles searching for movie
 }
 
-void bookOption(){
-    cout << "Search for book" << endl;
+void bookOption(User user){
+    cout << "--SEARCH--" << endl;
+    user.searchBook();
     //will call function that handles searching for book
 }
 
-void showOption(){
-    cout << "Search for show" << endl;
+void showOption(User user){
+    cout << "--SEARCH--" << endl;
+    user.searchShow();
     //will call function that handles searching for show
 }
 
-void recommendationOption(){
+void recommendationOption(User user){
     string choice;
-    cout << "--Recommendations--" << endl;
-    cout << "Do you want recommendations for: " << endl;
-    cout << "\t1. Movies" << endl;
-    cout << "\t2. Books" << endl;
-    cout << "\t3. Shows" << endl;
-    cout << "\t4. Go back to main menu" << endl;
+    //system ("clear");
+    cout << "--RECOMMENDATION--" << endl;
+    cout << "\tDo you want recommendations for: " << endl;
+    cout << "\t\t1. Movies" << endl;
+    cout << "\t\t2. Books" << endl;
+    cout << "\t\t3. Shows" << endl;
+    cout << "\t\t4. Go back to main menu" << endl;
     cout << endl;
-    cout << "Enter your choice: ";
+    cout << "\tEnter your choice: ";
     getline(cin, choice);
     cout << endl;
     if(choice == "1" || choice == "1."){
-        cout << "Movie recommendation" << endl;
+        cout << "Movie recommendation" << endl << flush;
         //call movie recommender
     }
     else if(choice == "2" || choice == "2."){
-        cout << "Book recommendation" << endl;
+        cout << "Book recommendation" << endl << flush;
         //call book recommender
     }
     else if(choice == "3" || choice == "3."){
-        cout << "Show recommendation" << endl;
+        cout << "Show recommendation" << endl << flush;
         //call show recommender
     }
     else if(choice == "4" || choice == "4."){
-        cout << "Returning back to main menu." << endl;
+        cout << "Returning back to main menu." << endl << flush;
     }
     else{
-        cout << "INVALID CHOICE" << endl;
-        cout << "Returning back to main menu." << endl;
+        cout << "INVALID CHOICE" << endl << flush;
+        cout << "Returning back to main menu." << endl << flush;
     }
 }
 
-void printMenu(){
+void printMenu(User user){
     /*
     MediaBowl
 
@@ -106,19 +112,25 @@ void printMenu(){
         getline(cin, choice);
         cout << endl;
         if(choice == "1" || choice == "1."){
-            movieOption();
+            movieOption(user);
         }
         else if(choice == "2" || choice == "2."){
-            bookOption();
+            bookOption(user);
         }
         else if(choice == "3" || choice == "3."){
-            showOption();
+            showOption(user);
         }
         else if(choice == "4" || choice == "4."){
-            recommendationOption();
+            recommendationOption(user);
         }
         else if(choice == "5" || choice == "5." || choice == "h" || choice == "help"){
             printHelp();
+        }
+        else if(choice == "p" || choice == "penguin"){
+            cout << " ('v')" << endl;
+            cout << "//-=-\\\\" << endl;
+            cout << " (_=/)" << endl;
+            cout << " ^^ ^^" << endl;
         }
         else if(choice == "6" || choice == "6." || choice == "q" || choice == "quit"){
             cout << "Quitting MediaBowl" << endl;
@@ -131,6 +143,8 @@ void printMenu(){
         }
         cout << endl;
         cout << "----------------------------------------------------------------" << endl;
+        //getc();
+        //system ("clear");
 
     }while(choice != "6" && choice != "6." && choice != "q" && choice != "quit");
 
@@ -153,13 +167,18 @@ int main(){
 
 //This will need to be error handled because the name can be wrong
 
-string bookFile, movieFile;
-cout << "Enter the name of the book file: ";
-getline(cin, bookFile);
-cout << "Enter the name of the movie file: ";
-getline(cin, movieFile);
+string bookFile = "TestBooks.txt", movieFile = "return.txt";
 
-printMenu();
+/*
+('v')
+//-=-\
+(_=/)
+ ^^ ^^
+*/
+
+User user(bookFile, movieFile);
+
+printMenu(user);
 
 return 0;
 
