@@ -568,6 +568,57 @@ void SearchClass::getMovieRec(string title){
     }
 }
 
+void SearchClass::getMediaRec(string title, mediaType media){
+    if(media == movie){
+        Movie* searchMovie = mediaData->movies.getByTitle(title);
+        if(searchMovie){
+            vector<string> genres = searchMovie->getGenres();
+            cout << "\t----Movie Recommendations----" << endl;
+            this->RecommendMovieByGenres(genres, searchMovie);
+            cout << "\t----Book Recommendations----" << endl;
+            this->RecommendBookByGenres(genres, searchMovie);
+            cout << "\t----Show Recommendations----" << endl;
+            this->RecommendShowByGenres(genres, searchMovie);
+        }
+        
+        else{
+            cout << "\tThe movie " << title << " was not found." << endl;
+        }
+    }
+    else if(media == book){
+        Book* searchBook = mediaData->books.getBy_title(title);
+        if(searchBook){
+            vector<string> genres = searchBook->getGenres();
+            cout << "\t----Book Recommendations----" << endl;
+            this->RecommendBookByGenres(genres, searchBook);
+            cout << "\t----Movie Recommendations----" << endl;
+            this->RecommendMovieByGenres(genres, searchBook);
+            cout << "\t----Show Recommendations----" << endl;
+            this->RecommendShowByGenres(genres, searchBook);
+        }
+        
+        else{
+            cout << "\tThe book " << title << " was not found." << endl;
+        }
+    }
+    else{
+        Show* searchShow = mediaData->shows.getByTitle(title);
+        if(searchShow){
+            vector<string> genres = searchShow->getGenres();
+            cout << "\t----Show Recommendations----" << endl;
+            this->RecommendShowByGenres(genres, searchShow);
+            cout << "\t----Movie Recommendations----" << endl;
+            this->RecommendMovieByGenres(genres, searchShow);
+            cout << "\t----Book Recommendations----" << endl;
+            this->RecommendBookByGenres(genres, searchShow);
+        }
+        
+        else{
+            cout << "\tThe show " << title << " was not found." << endl;
+        }
+    }
+}
+
 void SearchClass::RecommendShowByGenres(vector<string> genres, Media* media){
     //Getting movies that are similar to the movie based on most genres matched
     vector<Show*> firstPass = mediaData->shows.getByGenre(genres.at(0));

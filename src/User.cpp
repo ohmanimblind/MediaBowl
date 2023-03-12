@@ -178,12 +178,39 @@ void User::getBookRec(){
 }
 
 void User::getShowRec(){
-    cout << "\tEnter the title of the movie: ";
+    cout << "\tEnter the title of the show: ";
     string in;
     getline(cin, in);
     search->getShowRec(in);
 }
 
 void User::getMediaRec(){
-    
+    cout << "\tGet media recommendation by: " << endl;
+    cout << "\t\t1. Movie" << endl;
+    cout << "\t\t2. Book" << endl;
+    cout << "\t\t3. Show" << endl;
+    string choice;
+    getline(cin, choice);
+    if(choice == "1" || choice == "1." || choice == "movie" || choice == "Movie"){
+        cout << "\t\t\tEnter the title of the movie: ";
+        string in;
+        getline(cin, in);
+        search->getMediaRec(in, movie);
+    }
+    else if(choice == "2" || choice == "2." || choice == "book" || choice == "Book"){
+        cout << "\t\t\tEnter the title of the book: ";
+        string in;
+        getline(cin, in);
+        search->getMediaRec(in, book);
+    }
+    else if(choice == "3" || choice == "3." || choice == "show" || choice == "Show"){
+        cout << "\t\t\tEnter the title of the show: ";
+        string in;
+        getline(cin, in);
+        search->getMediaRec(in, show);
+    }
+    else{
+        cout << "\t\tINVALID CHOICE" << endl;
+        cout << "\t\tReturning to the main menu." << endl;
+    }
 }

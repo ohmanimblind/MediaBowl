@@ -2,6 +2,10 @@
 #define SEARCHCLASS_H
 #include "Data.h"
 
+enum mediaType{
+    movie, book, show
+};
+
 class SearchClass{
     
 private:
@@ -33,6 +37,7 @@ public:
     void getBookRec(string title);
     void getShowRec(string title);
     void getMovieRec(string title);
+    void getMediaRec(string title, mediaType media);
     
     void RecommendMovieByGenres(vector<string> genres, Media* media);
     void RecommendShowByGenres(vector<string> genres, Media* media);

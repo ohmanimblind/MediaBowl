@@ -42,7 +42,8 @@ void recommendationOption(User* user){
     cout << "\t\t1. Movies" << endl;
     cout << "\t\t2. Books" << endl;
     cout << "\t\t3. Shows" << endl;
-    cout << "\t\t4. Go back to main menu" << endl;
+    cout << "\t\t4. Media" << endl;
+    cout << "\t\t5. Go back to main menu" << endl;
     cout << endl;
     cout << "\tEnter your choice: ";
     getline(cin, choice);
@@ -63,6 +64,10 @@ void recommendationOption(User* user){
         //call show recommender
     }
     else if(choice == "4" || choice == "4."){
+        cout << "Media recommendation" << endl;
+        user->getMediaRec();
+    }
+    else if(choice == "5" || choice == "5."){
         cout << "Returning back to main menu." << endl << flush;
     }
     else{
