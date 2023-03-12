@@ -54,10 +54,12 @@ void recommendationOption(User* user){
     }
     else if(choice == "2" || choice == "2."){
         cout << "Book recommendation" << endl << flush;
+        user->getBookRec();
         //call book recommender
     }
     else if(choice == "3" || choice == "3."){
         cout << "Show recommendation" << endl << flush;
+        user->getShowRec();
         //call show recommender
     }
     else if(choice == "4" || choice == "4."){

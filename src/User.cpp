@@ -164,18 +164,24 @@ void User::searchShow() {
 }
 
 void User::getMovieRec(){
-    cout << "\tEnter the title: ";
+    cout << "\tEnter the title of the movie: ";
     string in;
     getline(cin, in);
     search->getMovieRec(in);
 }
 
 void User::getBookRec(){
-    
+    cout << "\tEnter the title of the book: ";
+    string in;
+    getline(cin, in);
+    search->getBookRec(in);
 }
 
 void User::getShowRec(){
-    
+    cout << "\tEnter the title of the movie: ";
+    string in;
+    getline(cin, in);
+    search->getShowRec(in);
 }
 
 void User::getMediaRec(){

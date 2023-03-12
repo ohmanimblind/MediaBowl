@@ -35,6 +35,8 @@ public:
     void getMovieRec(string title);
     
     void RecommendMovieByGenres(vector<string> genres, Media* media);
+    void RecommendShowByGenres(vector<string> genres, Media* media);
+    void RecommendBookByGenres(vector<string> genres, Media* media);
     
 };
 
