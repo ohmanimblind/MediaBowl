@@ -574,11 +574,17 @@ void SearchClass::getMediaRec(string title, mediaType media){
         if(searchMovie){
             vector<string> genres = searchMovie->getGenres();
             cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
             this->RecommendMovieByGenres(genres, searchMovie);
+            cout << endl;
             cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
             this->RecommendBookByGenres(genres, searchMovie);
+            cout << endl;
             cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
             this->RecommendShowByGenres(genres, searchMovie);
+            cout << endl;
         }
         
         else{
@@ -590,11 +596,17 @@ void SearchClass::getMediaRec(string title, mediaType media){
         if(searchBook){
             vector<string> genres = searchBook->getGenres();
             cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
             this->RecommendBookByGenres(genres, searchBook);
+            cout << endl;
             cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
             this->RecommendMovieByGenres(genres, searchBook);
+            cout << endl;
             cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
             this->RecommendShowByGenres(genres, searchBook);
+            cout << endl;
         }
         
         else{
@@ -606,11 +618,17 @@ void SearchClass::getMediaRec(string title, mediaType media){
         if(searchShow){
             vector<string> genres = searchShow->getGenres();
             cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
             this->RecommendShowByGenres(genres, searchShow);
+            cout << endl;
             cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
             this->RecommendMovieByGenres(genres, searchShow);
+            cout << endl;
             cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
             this->RecommendBookByGenres(genres, searchShow);
+            cout << endl;
         }
         
         else{
@@ -647,7 +665,7 @@ void SearchClass::RecommendShowByGenres(vector<string> genres, Media* media){
         }
     }
     if(prev.size() == 0  || (prev.at(0) == media && prev.size() == 1)){
-        cout << "No show similar to " << media->getTitle() << " was found.";
+        cout << "\t\tNo show similar to " << media->getTitle() << " was found.";
         cout << endl;
     }
     else{
@@ -698,7 +716,7 @@ void SearchClass::RecommendBookByGenres(vector<string> genres, Media* media){
         }
     }
     if(prev.size() == 0 || (prev.at(0) == media && prev.size() == 1)){
-        cout << "No book similar to " << media->getTitle() << " was found.";
+        cout << "\t\tNo book similar to " << media->getTitle() << " was found.";
         cout << endl;
     }
     else{
@@ -751,7 +769,7 @@ void SearchClass::RecommendMovieByGenres(vector<string> genres, Media* media){
         }
     }
     if(prev.size() == 0  || (prev.at(0) == media && prev.size() == 1)){
-        cout << "No movie similar to " << media->getTitle() << " was found.";
+        cout << "\t\tNo movie similar to " << media->getTitle() << " was found.";
         cout << endl;
     }
     else{
