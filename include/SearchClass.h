@@ -34,6 +34,8 @@ public:
     void getShowRec(string title);
     void getMovieRec(string title);
     
+    void RecommendMovieByGenres(vector<string> genres, Media* media);
+    
 };
 
 

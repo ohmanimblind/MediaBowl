@@ -545,47 +545,65 @@ void SearchClass::getMovieRec(string title){
     if(searchMovie){
         vector<string> genres = searchMovie->getGenres();
         if(genres.size() > 1){
-            vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(0));
-            vector<Movie*> finalVect;
-            vector<Movie*> prev = firstPass;
-            int counter = 0;
-            cout << genres.at(0) << endl;
-            for(int i = 1; i < genres.size(); i++){
-                cout << genres.at(i);
-                vector<Movie*> temp = mediaData->movies.getByGenre(genres.at(i));
-                if(i == 1){
-                    for(int j = 0; j < firstPass.size(); j++){
-                        for(int k = 0; k < temp.size(); k++){
-                            if(firstPass.at(j) == temp.at(k)){
-                                finalVect.push_back(firstPass.at(j));
-                            }
-                        }
-                    }
-                    if(i < genres.size() - 1){
-                        counter = finalVect.size();
-                    }
-                }
-                else{
-                    for(int j = 0; j < counter; j++){
-                        for(int k = 0; k < temp.size(); k++){
-                            if(finalVect.at(j) == temp.at(k) && temp.at(k) != searchMovie){
-                                finalVect.push_back(finalVect.at(j));
-                            }
-                        }
-                    }
-                    if(counter < finalVect.size() && i < genres.size() - 1){
-                        counter = finalVect.size();
-                    }
-                }
-                
-                cout << counter << endl;
-            }
-            
-                for(int i = finalVect.size() - 1; i > counter && i > finalVect.size() - 6; i--){
-                    this->SearchMovieByTitle(finalVect.at(i)->getTitle());
-                    cout << endl;
-            }
+            this->RecommendMovieByGenres(genres, searchMovie);
         }
+        else{
+            this->SearchMovieByGenre(genres.at(0));
+        }
+    }
+    
+    else{
+        cout << "The movie " << title << " was not found." << endl;
     }
 }
 
+
+void SearchClass::RecommendMovieByGenres(vector<string> genres, Media* media){
+    //Getting movies that are similar to the movie based on most genres matched
+    vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(0));
+    vector<Movie*> finalVect;
+    vector<Movie*> prev = firstPass;
+    int counter = 0;
+    
+    
+    //finds movies that are most similar and adds to a vector;
+    for(int i = 1; i < genres.size(); i++){
+        vector<Movie*> temp = mediaData->movies.getByGenre(genres.at(i));
+        vector<Movie*> matches;
+        for(int j = 0; j < prev.size(); j++){
+            for(int k = 0; k < temp.size(); k++){
+                if(temp.at(k) == prev.at(j) && temp.at(k) != media){
+                    matches.push_back(temp.at(k));
+                    break;
+                }
+            }
+        }
+        if(matches.size() > 0){
+            prev = matches;
+        }
+        else{
+            break;
+        }
+    }
+    if(prev.size() == 0){
+        cout << "No movie similar to " << media->getTitle() << " was found.";
+        cout << endl;
+    }
+    else{
+        srand(time(nullptr));
+        vector<int> newIndex;
+        while(newIndex.size() < 5 && newIndex.size() < prev.size()){
+            int idx = rand() % prev.size();
+            if(!(find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
+                newIndex.push_back(idx);
+            }
+        }
+        
+        for(int i = 0; i < newIndex.size(); i++){
+            cout << newIndex.at(i) << endl << endl;
+            this->SearchMovieByTitle(prev.at(newIndex.at(i))->getTitle());
+            cout << endl;
+        }
+    }
+    
+}
