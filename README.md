@@ -23,9 +23,9 @@
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 ## Class Diagram
-https://drive.google.com/file/d/1vXVpHUDVUsyV9RY5fdOARqvlRDKU_Ws7/view?usp=share_link
+https://drive.google.com/file/d/1mOU1FNlvHP8cEMHCy7PUbq2NKGVkmipp/view?usp=sharing
  
- The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie,Show, and Book objects.From there, these objects will be used to populate a database implemented throug hash tables. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are. The SeachClass and User class are seperate in order to follow SOLID principles
+ The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie,Show, and Book objects.From there, these objects will be used to populate a database implemented throug hash tables. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are. The SeachClass and User class are seperate in order to follow SOLID principles. The Single Responsibility principle is followed by making a distinct class for Searching, as well as a seperate class made to create the object stacks rather than have it done in the Data class (where the hashtables are filled). The dependecny inversion principle is followed by decoupling the user class for the search class, which helps if a different method of parsing through the data was desired, such as a binary tree or an SQL database, another class could simply be made without disturbing the user class. Interface segreation was followed by seperating books from movies and shows, and the template method was followed in order to make the abstract class , media. There is an argument to be made that the hashtables are in violation of the 3 Strike and Refactor rule, however, for this specific project and its specifications, no other forms of media will be added. In the event that more forms of media would be added, then refactoring would be need.
  
  
  > ## Phase III
