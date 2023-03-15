@@ -27,8 +27,12 @@ void SearchClass::SearchBookByTitle(string title){
         cout << "\tDescription: ";
         cout << book->getDescription() << endl;
         
-        cout <<"\tRating: " << book->getRating() << endl;
-        cout <<"\tYear: " << book->getYear() << endl;
+        if(book->getRating()){
+            cout <<"\tRating: " << book->getRating() << endl;
+        }
+        if(book->getYear()){
+            cout <<"\tYear: " << book->getYear() << endl;
+        }
         cout << "\tGenres: " ;
         book->displayGenres() ;
         cout << endl;
@@ -50,8 +54,12 @@ void SearchClass::SearchMovieByTitle(string title){
         cout << "\t-----------" << endl;
         cout << "\tTitle: " << movie->getTitle() << endl;
         cout << "\tDescription: " << movie->getDescription() << endl;
-        cout << "\tRating: " << movie->getRating() << endl;
-        cout << "\tYear: " << movie->getYear() << endl;
+        if(movie->getRating()){
+            cout << "\tRating: " << movie->getRating() << endl;
+        }
+        if(movie->getYear()){
+            cout << "\tYear: " << movie->getYear() << endl;
+        }
         cout << "\tGenres: " ;
         movie->displayGenres();
         cout << endl;
@@ -76,9 +84,12 @@ void SearchClass::SearchShowByTitle(string title){
         cout << "\t-----------" << endl;
         cout << "\tName: " << show->getTitle() << endl;
         cout << "\tDescription: " << show->getDescription() << endl;
-        
-        cout << "\tRating: " << show->getRating() << endl;
-        cout << "\tYear: " << show->getYear() << endl;
+        if(show->getRating()){
+            cout << "\tRating: " << show->getRating() << endl;
+        }
+        if(show->getYear()){
+            cout << "\tYear: " << show->getYear() << endl;
+        }
         cout << "\tGenres: " ;
         show->displayGenres();
         cout << endl;
