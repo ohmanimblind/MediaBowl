@@ -11,15 +11,16 @@
 using namespace std;
 
 class Data{
-
+	private:
+	    StackMaker* fillStack;	
 public:
-MovieTable movies;
-BookTable books;
-ShowTable shows;
-
-Data(string bookFile , string movieandshowfile);
-
-
+    MovieTable movies;
+    BookTable books;
+    ShowTable shows;
+    
+    Data(string bookFile , string movieandshowfile);
+    ~Data();
+    
 };
 
 #endif

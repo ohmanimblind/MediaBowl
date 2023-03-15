@@ -6,6 +6,14 @@ using namespace std;
 class MovieTable {
 public:
     MovieTable() {}
+    
+    void clearTable(){
+        movies.clear();
+        directorMap.clear();
+        genreMap.clear();
+        actorMap.clear();
+        releaseYearMap.clear();
+    }
 
     void insertMovie(Movie* movie) {
         if(movies[movie->getTitle()]){

@@ -17,7 +17,7 @@ stack<Show*> showStack;
 public: 
 
 StackMaker(string bookFileName, string MovieandShowFileName);
-
+~StackMaker();
 stack<Movie*> getMovieStack();
 stack<Book*>  getBookStack();
 stack<Show*> getShowStack();

@@ -11,6 +11,10 @@ search = new SearchClass(b,ms);
 
 }
 
+User::~User(){
+    delete search;
+}
+
 void User::searchBook(){
 
     string choice;
@@ -157,4 +161,65 @@ void User::searchShow() {
         cout << "\tReturning to main menu." << endl;
     }
 
+}
+
+void User::getMovieRec(){
+    cout << "\t\tEnter the title of the movie: ";
+    string in;
+    getline(cin, in);
+    cout << endl;
+    search->getMovieRec(in);
+}
+
+void User::getBookRec(){
+    cout << "\t\tEnter the title of the book: ";
+    string in;
+    getline(cin, in);
+    cout << endl;
+    search->getBookRec(in);
+}
+
+void User::getShowRec(){
+    cout << "\t\tEnter the title of the show: ";
+    string in;
+    getline(cin, in);
+    cout << endl;
+    search->getShowRec(in);
+}
+
+void User::getMediaRec(){
+    cout << "\tGet media recommendation by: " << endl;
+    cout << "\t\t1. Movie" << endl;
+    cout << "\t\t2. Book" << endl;
+    cout << "\t\t3. Show" << endl;
+    cout << endl;
+    cout << "\tEnter your choice: ";
+    string choice;
+    getline(cin, choice);
+    cout << endl;
+    if(choice == "1" || choice == "1." || choice == "movie" || choice == "Movie"){
+        cout << "\t\t\tEnter the title of the movie: ";
+        string in;
+        getline(cin, in);
+        cout << endl;
+        search->getMediaRec(in, movie);
+    }
+    else if(choice == "2" || choice == "2." || choice == "book" || choice == "Book"){
+        cout << "\t\t\tEnter the title of the book: ";
+        string in;
+        getline(cin, in);
+        cout << endl;
+        search->getMediaRec(in, book);
+    }
+    else if(choice == "3" || choice == "3." || choice == "show" || choice == "Show"){
+        cout << "\t\t\tEnter the title of the show: ";
+        string in;
+        getline(cin, in);
+        cout << endl;
+        search->getMediaRec(in, show);
+    }
+    else{
+        cout << "\t\tINVALID CHOICE" << endl;
+        cout << "\t\tReturning to main menu." << endl;
+    }
 }

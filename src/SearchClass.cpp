@@ -13,6 +13,9 @@ SearchClass::SearchClass(string b , string ms){
     
 }
 
+SearchClass::~SearchClass(){
+    delete mediaData;
+}
 
 void SearchClass::SearchBookByTitle(string title){
     
@@ -111,7 +114,7 @@ void SearchClass::SearchMovieByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % moviesWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -151,7 +154,7 @@ void SearchClass::SearchBookByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % booksWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -192,7 +195,7 @@ void SearchClass::SearchShowByGenre(string genre){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithGenre.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -231,7 +234,7 @@ void SearchClass::SearchBookByAuthor(string author){
     while(newIndex.size() < count){
         int idx = std::rand() % booksWithAuthor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -272,7 +275,7 @@ void SearchClass::SearchMovieByDirector(string director){
     while(newIndex.size() < count){
         int idx = std::rand() % moviesWithDirector.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -312,7 +315,7 @@ void SearchClass::SearchShowByDirector(string director){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithDirector.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -354,7 +357,7 @@ void SearchClass::SearchShowByActor(string actor){
     while(newIndex.size() < count){
         int idx = std::rand() % showsWithActor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -393,7 +396,7 @@ void SearchClass::SearchMovieByActor(string actor){
     while(newIndex.size() < count){
         int idx = std::rand() % movieWithActor.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -433,7 +436,7 @@ void SearchClass::SearchBookByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % bookInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -471,7 +474,7 @@ void SearchClass::SearchMovieByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % movieInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -511,7 +514,7 @@ void SearchClass::SearchShowByYear(int year){
     while(newIndex.size() < count){
         int idx = std::rand() % showInYear.size();
         if ( !(std::find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
-                   newIndex.push_back(idx);
+            newIndex.push_back(idx);
         }
     }
     for (int i = 0; i < count; i++) {
@@ -529,11 +532,280 @@ void SearchClass::SearchShowByYear(int year){
     
 }
 
-// void SearchClass::getBookRec(string title){
+void SearchClass::getBookRec(string title){
+    Book* searchBook = mediaData->books.getBy_title(title);
+    if(searchBook){
+        vector<string> genres = searchBook->getGenres();
+        this->RecommendBookByGenres(genres, searchBook);
+    }
+    
+    else{
+        cout << "\tThe book " << title << " was not found." << endl;
+    }
+}
 
-// Book* searchBok = mediaData->books.getBy_title(title);
+void SearchClass::getShowRec(string title){
+    Show* searchShow = mediaData->shows.getByTitle(title);
+    if(searchShow){
+        vector<string> genres = searchShow->getGenres();
+        this->RecommendShowByGenres(genres, searchShow);
+    }
+    
+    else{
+        cout << "\tThe show " << title << " was not found." << endl;
+    }
+}
+
+void SearchClass::getMovieRec(string title){
+    Movie* searchMovie = mediaData->movies.getByTitle(title);
+    if(searchMovie){
+        vector<string> genres = searchMovie->getGenres();
+        this->RecommendMovieByGenres(genres, searchMovie);
+    }
+    
+    else{
+        cout << "\tThe movie " << title << " was not found." << endl;
+    }
+}
+
+void SearchClass::getMediaRec(string title, mediaType media){
+    if(media == movie){
+        Movie* searchMovie = mediaData->movies.getByTitle(title);
+        if(searchMovie){
+            vector<string> genres = searchMovie->getGenres();
+            cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
+            this->RecommendMovieByGenres(genres, searchMovie);
+            cout << endl;
+            cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
+            this->RecommendBookByGenres(genres, searchMovie);
+            cout << endl;
+            cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
+            this->RecommendShowByGenres(genres, searchMovie);
+            cout << endl;
+        }
+        
+        else{
+            cout << "\tThe movie " << title << " was not found." << endl;
+        }
+    }
+    else if(media == book){
+        Book* searchBook = mediaData->books.getBy_title(title);
+        if(searchBook){
+            vector<string> genres = searchBook->getGenres();
+            cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
+            this->RecommendBookByGenres(genres, searchBook);
+            cout << endl;
+            cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
+            this->RecommendMovieByGenres(genres, searchBook);
+            cout << endl;
+            cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
+            this->RecommendShowByGenres(genres, searchBook);
+            cout << endl;
+        }
+        
+        else{
+            cout << "\tThe book " << title << " was not found." << endl;
+        }
+    }
+    else{
+        Show* searchShow = mediaData->shows.getByTitle(title);
+        if(searchShow){
+            vector<string> genres = searchShow->getGenres();
+            cout << "\t----Show Recommendations----" << endl;
+            cout << endl;
+            this->RecommendShowByGenres(genres, searchShow);
+            cout << endl;
+            cout << "\t----Movie Recommendations----" << endl;
+            cout << endl;
+            this->RecommendMovieByGenres(genres, searchShow);
+            cout << endl;
+            cout << "\t----Book Recommendations----" << endl;
+            cout << endl;
+            this->RecommendBookByGenres(genres, searchShow);
+            cout << endl;
+        }
+        
+        else{
+            cout << "\tThe show " << title << " was not found." << endl;
+        }
+    }
+}
+
+void SearchClass::RecommendShowByGenres(vector<string> genres, Media* media){
+    //Getting movies that are similar to the movie based on most genres matched
+    vector<Show*> firstPass = mediaData->shows.getByGenre(genres.at(genres.size() - 1));
+    
+    int index = genres.size() - 1;
+    while(firstPass.size() < 1 && index > 0){
+        firstPass = mediaData->shows.getByGenre(genres.at(--index));
+    }
+    if(index == 0 && firstPass.size() == 0){
+        cout << "\t\tNo show similar to " << media->getTitle() << " was found.";
+        cout << endl;
+        return;
+    }
+    
+    vector<Show*> finalVect;
+    vector<Show*> prev = firstPass;
+    int counter = 0;
+    //finds movies that are most similar and adds to a vector;
+    for(int i = 0; i < genres.size() - 1; i++){
+        vector<Show*> temp = mediaData->shows.getByGenre(genres.at(i));
+        vector<Show*> matches;
+        for(int j = 0; j < prev.size(); j++){
+            for(int k = 0; k < temp.size(); k++){
+                if(temp.at(k) == prev.at(j) && temp.at(k) != media){
+                    matches.push_back(temp.at(k));
+                    break;
+                }
+            }
+        }
+        if(matches.size() > 0){
+            prev = matches;
+        }
+        else{
+            break;
+        }
+    }
+    if(prev.size() == 0  || (prev.at(0) == media && prev.size() == 1)){
+        cout << "\t\tNo show similar to " << media->getTitle() << " was found.";
+        cout << endl;
+    }
+    else{
+        srand(time(nullptr));
+        vector<int> newIndex;
+        while(newIndex.size() < 5 && newIndex.size() < prev.size()){
+            int idx = rand() % prev.size();
+            if(!(find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
+                newIndex.push_back(idx);
+            }
+        }
+        
+        for(int i = 0; i < newIndex.size(); i++){
+            if(prev.at(newIndex.at(i)) != media){
+                this->SearchShowByTitle(prev.at(newIndex.at(i))->getTitle());
+                cout << endl;
+            }
+        }
+    }
+    
+}
+
+void SearchClass::RecommendBookByGenres(vector<string> genres, Media* media){
+    //Getting movies that are similar to the movie based on most genres matched
+    vector<Book*> firstPass = mediaData->books.getByGenre(genres.at(genres.size() - 1));
+    vector<Book*> finalVect;
+    vector<Book*> prev = firstPass;
+    int counter = 0;
+    
+    
+    //finds movies that are most similar and adds to a vector;
+    for(int i = 0; i < genres.size() - 1; i++){
+        vector<Book*> temp = mediaData->books.getByGenre(genres.at(i));
+        vector<Book*> matches;
+        for(int j = 0; j < prev.size(); j++){
+            for(int k = 0; k < temp.size(); k++){
+                if(temp.at(k) == prev.at(j) && temp.at(k) != media){
+                    matches.push_back(temp.at(k));
+                    break;
+                }
+            }
+        }
+        if(matches.size() > 0){
+            prev = matches;
+        }
+        else{
+            break;
+        }
+    }
+    if(prev.size() == 0 || (prev.at(0) == media && prev.size() == 1)){
+        cout << "\t\tNo book similar to " << media->getTitle() << " was found.";
+        cout << endl;
+    }
+    else{
+        srand(time(nullptr));
+        vector<int> newIndex;
+        while(newIndex.size() < 5 && newIndex.size() < prev.size()){
+            int idx = rand() % prev.size();
+            if(!(find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
+                newIndex.push_back(idx);
+            }
+        }
+        
+        for(int i = 0; i < newIndex.size(); i++){
+            if(prev.at(newIndex.at(i)) != media){
+                this->SearchBookByTitle(prev.at(newIndex.at(i))->getTitle());
+                cout << endl;
+            }
+        }
+    }
+    
+}
 
 
 
-// }
-
+void SearchClass::RecommendMovieByGenres(vector<string> genres, Media* media){
+    //Getting movies that are similar to the movie based on most genres matched
+    vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(genres.size() - 1));
+    int index = genres.size() - 1;
+    while(firstPass.size() < 1 && index > 0){
+        firstPass = mediaData->movies.getByGenre(genres.at(--index));
+    }
+    if(index == 0 && firstPass.size() == 0){
+        cout << "\t\tNo movie similar to " << media->getTitle() << " was found.";
+        cout << endl;
+        return;
+    }
+    vector<Movie*> finalVect;
+    vector<Movie*> prev = firstPass;
+    int counter = 0;
+    
+    
+    //finds movies that are most similar and adds to a vector;
+    for(int i = 0; i < index; i++){
+        vector<Movie*> temp = mediaData->movies.getByGenre(genres.at(i));
+        vector<Movie*> matches;
+        for(int j = 0; j < prev.size(); j++){
+            for(int k = 0; k < temp.size(); k++){
+                if(temp.at(k) == prev.at(j) && temp.at(k) != media){
+                    matches.push_back(temp.at(k));
+                    break;
+                }
+            }
+        }
+        if(matches.size() > 0){
+            prev = matches;
+        }
+        else{
+            break;
+        }
+    }
+    if(prev.size() == 0  || (prev.at(0) == media && prev.size() == 1)){
+        cout << "\t\tNo movie similar to " << media->getTitle() << " was found.";
+        cout << endl;
+    }
+    else{
+        srand(time(nullptr));
+        vector<int> newIndex;
+        while(newIndex.size() < 5 && newIndex.size() < prev.size()){
+            int idx = rand() % prev.size();
+            if(!(find(newIndex.begin(), newIndex.end(), idx) != newIndex.end())){
+                newIndex.push_back(idx);
+            }
+        }
+        
+        for(int i = 0; i < newIndex.size(); i++){
+            if(prev.at(newIndex.at(i)) != media){
+                this->SearchMovieByTitle(prev.at(newIndex.at(i))->getTitle());
+                cout << endl;
+            }
+        }
+    }
+    
+}

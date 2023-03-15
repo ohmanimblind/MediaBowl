@@ -10,14 +10,15 @@ SearchClass* search;
 
 public:
     User(string bookFile , string movieshowfile);
+    ~User();
 	void searchBook();
 	void searchMovie();
 	void searchShow();
 	void searchGenre();
-	// void getBookRec();
-	// void getMovieRec();
-	// void getShowRec();
-	
+	void getBookRec();
+	void getMovieRec();
+	void getShowRec();
+    void getMediaRec();
 
 
 

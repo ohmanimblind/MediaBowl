@@ -6,7 +6,13 @@ using namespace std;
 class ShowTable {
 public:
     ShowTable() {}
-
+    void clearTable(){
+        shows.clear();
+        genreMap.clear();
+        directorMap.clear();
+        actorMap.clear();
+        releaseYearMap.clear();
+    }
     void insertShow(Show* show) {
         if(shows[show->getTitle()]){
             return;
