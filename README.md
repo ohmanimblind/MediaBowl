@@ -13,6 +13,8 @@
 
 ## Class Diagram
 https://drive.google.com/file/d/1mOU1FNlvHP8cEMHCy7PUbq2NKGVkmipp/view?usp=sharing
+![MediaBowl_UMLDiagram](https://user-images.githubusercontent.com/122424470/225462978-6786bd99-a389-4d7e-bf9b-858b1e46ba9f.jpg)
+
  
  The program will work as follows: one file will focus on converting a list of scraped data(done with python), into Movie,Show, and Book objects.From there, these objects will be used to populate a database implemented throug hash tables. The Database class is also seperate than the StackMaker class, in order to be clear on what the purpose of both programs are. The SeachClass and User class are seperate in order to follow SOLID principles. The Single Responsibility principle is followed by making a distinct class for Searching, as well as a seperate class made to create the object stacks rather than have it done in the Data class (where the hashtables are filled). The dependecny inversion principle is followed by decoupling the user class for the search class, which helps if a different method of parsing through the data was desired, such as a binary tree or an SQL database, another class could simply be made without disturbing the user class. Interface segreation was followed by seperating books from movies and shows, and the template method was followed in order to make the abstract class , media. There is an argument to be made that the hashtables are in violation of the 3 Strike and Refactor rule, however, for this specific project and its specifications, no other forms of media will be added. In the event that more forms of media would be added, then refactoring would be need.
  
@@ -25,11 +27,14 @@ https://drive.google.com/file/d/1mOU1FNlvHP8cEMHCy7PUbq2NKGVkmipp/view?usp=shari
  Step 1: Run cmake .
  Step 2: Run make
  Step 3: Run main
+ 
  SPECIFICATIONS: Every Search functions only takes in one parameter. Also note, that if an item is not found, you may have mispelled. Thank you for understanding.
  TROUBLESHOOTING: If there is an error during compilation, try deleting the lib folder, and repeat the steps.
  DO NOT RENAME OR DELETE THE TEXT FILES AS THEY ARE  ESSENTIAL TO THE PROGRAM RUNNING CORRECTLY (Thank You For Understanding).
+ 
  ## Testing
  ![Screenshot (46)](https://user-images.githubusercontent.com/122424470/225460477-674024a7-c0cd-4dad-aa7e-220dbfe77444.png)
  ![Screenshot (44)](https://user-images.githubusercontent.com/122424470/225460775-2076afff-1b69-487d-ae37-33924c5ecdeb.png)
+
 The Google Testing framework was used to validate the contsructors for every class, every object, as well as validating correct searches based on user prompts. As seen in the valgrind report, this achieves memcheck clean.
  
