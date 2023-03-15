@@ -30,13 +30,13 @@ else{
         
         
         istringstream iss(line);
-        getline(iss, title, '#');
-        getline(iss, description, '#');
+        getline(iss, title, '\\');
+        getline(iss, description, '\\');
         iss >> rating;
         iss.ignore(); 
-        getline(iss, yearStr, '#');
-        getline(iss, genreStr, '#');
-        getline(iss, authorStr, '#');
+        getline(iss, yearStr, '\\');
+        getline(iss, genreStr, '\\');
+        getline(iss, authorStr, '\\');
         
         istringstream genreStream(genreStr), authorStream(authorStr);
         string genre, author;
@@ -46,7 +46,11 @@ else{
         while (getline(authorStream, author, ',')) {
             authors.push_back(author);
         }
-        
+//        if(yearStr.at(0) != '1' && yearStr.at(0) != '2' && yearStr.at(0) != '0'){
+//            cout << title << ": ";
+//            cout << yearStr << endl;
+//
+//        }
         int year = stoi(yearStr);
         
         

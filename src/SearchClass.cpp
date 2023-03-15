@@ -639,14 +639,23 @@ void SearchClass::getMediaRec(string title, mediaType media){
 
 void SearchClass::RecommendShowByGenres(vector<string> genres, Media* media){
     //Getting movies that are similar to the movie based on most genres matched
-    vector<Show*> firstPass = mediaData->shows.getByGenre(genres.at(0));
+    vector<Show*> firstPass = mediaData->shows.getByGenre(genres.at(genres.size() - 1));
+    
+    int index = genres.size() - 1;
+    while(firstPass.size() < 1 && index > 0){
+        firstPass = mediaData->shows.getByGenre(genres.at(--index));
+    }
+    if(index == 0 && firstPass.size() == 0){
+        cout << "\t\tNo show similar to " << media->getTitle() << " was found.";
+        cout << endl;
+        return;
+    }
+    
     vector<Show*> finalVect;
     vector<Show*> prev = firstPass;
     int counter = 0;
-    
-    
     //finds movies that are most similar and adds to a vector;
-    for(int i = 1; i < genres.size(); i++){
+    for(int i = 0; i < genres.size() - 1; i++){
         vector<Show*> temp = mediaData->shows.getByGenre(genres.at(i));
         vector<Show*> matches;
         for(int j = 0; j < prev.size(); j++){
@@ -690,14 +699,14 @@ void SearchClass::RecommendShowByGenres(vector<string> genres, Media* media){
 
 void SearchClass::RecommendBookByGenres(vector<string> genres, Media* media){
     //Getting movies that are similar to the movie based on most genres matched
-    vector<Book*> firstPass = mediaData->books.getByGenre(genres.at(0));
+    vector<Book*> firstPass = mediaData->books.getByGenre(genres.at(genres.size() - 1));
     vector<Book*> finalVect;
     vector<Book*> prev = firstPass;
     int counter = 0;
     
     
     //finds movies that are most similar and adds to a vector;
-    for(int i = 1; i < genres.size(); i++){
+    for(int i = 0; i < genres.size() - 1; i++){
         vector<Book*> temp = mediaData->books.getByGenre(genres.at(i));
         vector<Book*> matches;
         for(int j = 0; j < prev.size(); j++){
@@ -743,14 +752,23 @@ void SearchClass::RecommendBookByGenres(vector<string> genres, Media* media){
 
 void SearchClass::RecommendMovieByGenres(vector<string> genres, Media* media){
     //Getting movies that are similar to the movie based on most genres matched
-    vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(0));
+    vector<Movie*> firstPass = mediaData->movies.getByGenre(genres.at(genres.size() - 1));
+    int index = genres.size() - 1;
+    while(firstPass.size() < 1 && index > 0){
+        firstPass = mediaData->movies.getByGenre(genres.at(--index));
+    }
+    if(index == 0 && firstPass.size() == 0){
+        cout << "\t\tNo movie similar to " << media->getTitle() << " was found.";
+        cout << endl;
+        return;
+    }
     vector<Movie*> finalVect;
     vector<Movie*> prev = firstPass;
     int counter = 0;
     
     
     //finds movies that are most similar and adds to a vector;
-    for(int i = 1; i < genres.size(); i++){
+    for(int i = 0; i < index; i++){
         vector<Movie*> temp = mediaData->movies.getByGenre(genres.at(i));
         vector<Movie*> matches;
         for(int j = 0; j < prev.size(); j++){

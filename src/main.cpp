@@ -113,7 +113,8 @@ void printMenu(User* user){
         cout << "\t3. Search for a SHOW" << endl;
         cout << "\t4. Get recommendations" << endl;
         cout << "\t5. Help" << endl;
-        cout << "\t6. Quit" << endl;
+        cout << "\t6. Clear console" << endl;
+        cout << "\t7. Quit" << endl;
         cout << endl;
         
         cout << "Enter your choice: ";
@@ -140,7 +141,10 @@ void printMenu(User* user){
             cout << " (_=/)" << endl;
             cout << " ^^ ^^" << endl;
         }
-        else if(choice == "6" || choice == "6." || choice == "q" || choice == "quit"){
+        else if(choice == "6" || choice == "6." || choice == "clear"){
+            system("clear");
+        }
+        else if(choice == "7" || choice == "7." || choice == "q" || choice == "quit"){
             cout << "Quitting MediaBowl" << endl;
         }
         else{
@@ -154,7 +158,7 @@ void printMenu(User* user){
         //getc();
         //system ("clear");
         
-    }while(choice != "6" && choice != "6." && choice != "q" && choice != "quit");
+    }while(choice != "7" && choice != "7." && choice != "q" && choice != "quit");
     
     cout << "Thank you." << endl;
     cout << endl;
@@ -175,7 +179,7 @@ int main(){
     
     //This will need to be error handled because the name can be wrong
     
-    string bookFile = "TestBooks.txt", movieFile = "return.txt";
+    string bookFile = "books_final.txt", movieFile = "return.txt";
     
     /*
      ('v')
