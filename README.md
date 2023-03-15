@@ -22,6 +22,8 @@ https://drive.google.com/file/d/1mOU1FNlvHP8cEMHCy7PUbq2NKGVkmipp/view?usp=shari
  ## Screenshots
  ![Screenshot (42)](https://user-images.githubusercontent.com/122424470/225461223-cfb3f14a-8969-468d-ad37-da6f0695e36b.png)
  ![Screenshot (45)](https://user-images.githubusercontent.com/122424470/225462579-127ed260-d827-4900-8f82-e3f2959a2ae1.png)
+ ![Screenshot (42)](https://user-images.githubusercontent.com/122424470/225463849-73c864b2-7967-4f4d-98e0-5eafb220f486.png)
+
 
  ## Installation/Usage
  Step 1: Run cmake .
