@@ -5,4 +5,8 @@ runAllTests
 main
 CMakeCache.txt
 .DS_Store
+lib/libgmock.a
+lib/libgmock_main.a
+lib/libgtest.a
+lib/libgtest_main.a
 
