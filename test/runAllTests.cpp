@@ -2606,4 +2606,4 @@ TEST(TestingUserFile, SearchShowsByActor_4){
         cout.rdbuf(old_cout_streambuf); // restore cout
         ASSERT_EQ(output_SearchClass.str(), expected_output);
     }
-}
+} 
